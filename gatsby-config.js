@@ -15,6 +15,23 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: 'magda-kowalska',
+        accessToken: 'MC5YNUdFMEJBQUFDSUFZbng1.77-9JSHvv73vv73vv71o77-9SDHvv71tSe-_ve-_ve-_ve-_ve-_ve-_vTfvv71Y77-977-9G--_ve-_ve-_ve-_ve-_ve-_ve-_vQ',
+        schemas: {
+          blog_post: require('./src/schemas/blog_post.json'),
+        },
+        lang: '*',
+        prismicToolbar: false,
+        shouldDownloadImage: ({ node, key, value }) => {
+          return true;
+        },
+        typePathsFilenamePrefix:
+          'prismic-typepaths---magda-kowalska',
+      },
+    },
+    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [

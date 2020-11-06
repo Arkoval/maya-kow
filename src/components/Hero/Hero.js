@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import HeroImage from "../../images/hero-img.jpg"
-import HeroNavbar from './HeroNavbar'
+import HeroNavbar from '../Navbar/HeroNavbar'
 
 const StyledWrapper = styled.div`
   display: grid;

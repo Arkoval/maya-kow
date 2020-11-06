@@ -1,0 +1,18 @@
+{
+    "Main" : {
+      "categories" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "category" : {
+              "type" : "Text",
+              "config" : {
+                "label" : "Category"
+              }
+            }
+          },
+          "label" : "categories"
+        }
+      }
+    }
+  }

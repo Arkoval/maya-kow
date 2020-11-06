@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import {routes} from '../../routes/routes'
 import Logo from '../../images/logo.inline.svg'
 
-const StyledNav = styled.div`
+const StyledNav = styled.nav`
 position: absolute;
 width: 90vw;
 left: 50%;
@@ -34,7 +34,6 @@ const StyledLink = styled(Link)`
     `
 const StyledLogo = styled(Logo)`
 fill: ${({theme}) => theme.colors.light};
-stroke: ${({theme}) => theme.colors.light};
 height: 7rem;
 `
 

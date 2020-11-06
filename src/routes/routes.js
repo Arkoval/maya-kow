@@ -20,9 +20,3 @@ export const routes = [
         path: '#kontakt'
     }
 ]
-
-// export const subRoutes = [
-//     {
-//         name: ''
-//     }
-// ]
