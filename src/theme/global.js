@@ -1,5 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
-
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -54,10 +53,11 @@ export const GlobalStyle = createGlobalStyle`
     // RESET CSS=================================
 
      body {
-        font-family: 'Lato';
+        font-family: 'Montserrat';
         font-size: 16px;
         color: #232323;
         line-height: 1.2;
+        font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 300)));
      }
        
-`
+`;

@@ -2,46 +2,103 @@ import React, { useEffect } from 'react';
 import { graphql, Link } from 'gatsby';
 import CoffeeTemplate from '../layout/CoffeeTemplate';
 import styled from 'styled-components';
+import HTMLRenderer from 'react-html-renderer';
+import Powder from '../images/powder.inline.svg';
+import { theme } from '../theme/theme';
 
 const StyledArticle = styled.article`
-  width: 60%;
-  /* background-color: lightgray; */
+  position: relative;
+  z-index: 1;
+  width: 90%;
   margin: 0 auto;
-  padding: 4rem;
-  ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')}
+  padding: 1rem 0;
+
+  ${({ theme }) => theme.mixins.flex('flex', 'column', 'flex-start', 'center')}
   box-shadow: 0px 0px 21px 1px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  ${({ theme }) => theme.media.sm} {
+    padding: 4rem;
+    width: 70%;
+  }
 `;
-const StyledWrapper = styled.div`
-  /* ${({ theme }) =>
-    theme.mixins.flex('flex', 'row', 'center', 'space-between')} */
-  /* width: 100%; */
+
+const StyledPowderSvg = styled(Powder)`
+  position: absolute;
+  left: -20%;
+  top: 70%;
+  width: 50%;
+  z-index: -1;
 `;
-const StyledHeadingWrapper = styled.div`
-  margin: 2rem;
-  justify-self: flex-start;
-`;
+
 const StyledHeading = styled.h1`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 3rem;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: ${({ theme, color }) =>
+    color === 'blue' ? theme.colors.blue : '#B3D158'};
+
+  ${({ theme }) => theme.media.sm} {
+    font-size: 3rem;
+  }
+`;
+
+const StyledDate = styled.p`
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.blue};
+  margin: 0.5rem auto;
+  width: 90%;
+
+  ${({ theme }) => theme.media.sm} {
+    font-size: 1.2rem;
+  }
+`;
+const StyledTitle = styled.strong`
+  display: block;
+  margin: 1rem 0;
+  font-weight: 600;
 `;
 const StyledParagraph = styled.p`
-  width: 60%;
-  text-align: justify;
-  margin: 1rem 0;
+  text-align: left;
+  width: 90%;
+  margin: 0 auto;
+  line-height: 1.2rem;
+  ${({ theme }) => theme.media.sm} {
+    line-height: 1.5rem;
+    width: 80%;
+  }
+  ${({ theme }) => theme.media.lg} {
+    width: 60%;
+  }
 `;
 const StyledImg = styled.img`
   width: 90%;
   height: 60vh;
+  margin: 1rem auto;
   object-fit: cover;
+  ${({ theme }) => theme.media.sm} {
+    margin: 4rem auto;
+  }
 `;
-const StyledLink = styled(Link)`
+const StyledLink = styled.a``;
+const StyledLinkBack = styled(Link)`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.dark};
   justify-self: flex-end;
   align-self: flex-end;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+
+  ${({ theme }) => theme.media.sm} {
+    font-size: 1.2rem;
+    margin: 1rem;
+  }
 `;
+
 const LeftTemplate = ({ data }) => {
   const post = data.prismicBlogPost;
 
@@ -50,17 +107,30 @@ const LeftTemplate = ({ data }) => {
   });
 
   return (
-    <CoffeeTemplate>
+    <CoffeeTemplate color={theme.colors.green}>
       <StyledArticle>
-        <StyledHeadingWrapper>
-          <StyledHeading>{post.data.title.text}</StyledHeading>
-          <StyledParagraph>Post dodany: {post.data.date}</StyledParagraph>
-        </StyledHeadingWrapper>
+        <StyledHeading>{post.data.title.text}</StyledHeading>
         <StyledImg src={post.data.image.url} alt={post.data.image.alt} />
-        <StyledParagraph>{post.data.text.text}</StyledParagraph>
-        <StyledParagraph>{post.data.text_2.text}</StyledParagraph>
-        <StyledLink to={'/blog'}>powrót...</StyledLink>
+        <HTMLRenderer
+          html={post.data.text.html}
+          components={{
+            strong: props => <StyledTitle {...props} />,
+            p: props => <StyledParagraph {...props} />,
+            a: props => <StyledLink {...props} />,
+          }}
+        />
+        <HTMLRenderer
+          html={post.data.text_2.html}
+          components={{
+            strong: props => <StyledTitle {...props} />,
+            p: props => <StyledParagraph {...props} />,
+            a: props => <StyledLink {...props} />,
+          }}
+        />
+        <StyledDate>{post.data.date}</StyledDate>
+        <StyledLinkBack to={'/blog'}>powrót...</StyledLinkBack>
       </StyledArticle>
+      <StyledPowderSvg />
     </CoffeeTemplate>
   );
 };
@@ -74,6 +144,7 @@ export const query = graphql`
       data {
         title {
           text
+          html
         }
         date
         image {
@@ -81,9 +152,10 @@ export const query = graphql`
           url
         }
         text {
-          text
+          html
         }
         text_2 {
+          html
           text
         }
       }

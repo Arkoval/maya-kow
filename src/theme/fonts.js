@@ -1,4 +1,4 @@
 export const fonts = {
   heading: 'Rozha One, serif',
-  paragraf: 'Mulish, sans-serif',
+  paragraf: 'Montserrat, sans-serif',
 };

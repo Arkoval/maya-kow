@@ -6,7 +6,11 @@ import BlogCategory from './BlogCategory';
 
 const StyledWrapper = styled.div`
   margin: 0 auto;
-  width: 60%;
+  width: 90%;
+
+  @media (min-width: 425px) {
+    width: 70%;
+  }
 `;
 const StyledCategoriesWrapper = styled.ul`
   ${({ theme }) => theme.mixins.flex('flex', 'row', 'center', 'space-evenly')}
@@ -15,48 +19,43 @@ const StyledCategoriesWrapper = styled.ul`
   margin: 2rem 0;
 `;
 const StyledCardsWrapper = styled.div`
-  ${({ theme }) => theme.mixins.flex('flex', 'row', 'center', 'space-between')}
+  ${({ theme }) => theme.mixins.flex('flex', 'row', 'center', 'space-evenly')}
   display: flex;
   max-width: 100%;
   flex-wrap: wrap;
+  ${({ theme }) => theme.media.md} {
+    ${({ theme }) =>
+      theme.mixins.flex('flex', 'row', 'center', 'space-between')}
+  }
 `;
 const BlogMain = () => {
   const { allPrismicBlogPost, prismicBlogCategories } = useStaticQuery(query);
   const blogPosts = allPrismicBlogPost.nodes;
   const blogCategories = prismicBlogCategories.data.categories;
-  // const [dup,setDup] = useState([])
-  const [isChecked, setIsChecked] = useState({
-    tipsy: false,
-    przywództwo: false,
-    awans: false,
-    osobistyCase: false,
-    perfekcjonizm: false,
-    wewnętrznaTransformacja: false,
-    rozwój: false,
-    zmiany: false,
-    pewnośćSiebie: false,
-    strefaWpływu: false,
-    marzenia: false,
-    stres: false,
-    mądreKsiążki: false,
-    narzędzia: false,
-    uskrzydloneZespoły: false,
-    hr: false,
-    kariera: false,
-    wewnętrznySpokój: false,
-  });
+  // const [isChecked, setIsChecked] = useState({
+  //   tipsy: false,
+  //   przywództwo: false,
+  //   awans: false,
+  //   osobistyCase: false,
+  //   perfekcjonizm: false,
+  //   wewnętrznaTransformacja: false,
+  //   rozwój: false,
+  //   zmiany: false,
+  //   pewnośćSiebie: false,
+  //   strefaWpływu: false,
+  //   marzenia: false,
+  //   stres: false,
+  //   mądreKsiążki: false,
+  //   narzędzia: false,
+  //   uskrzydloneZespoły: false,
+  //   hr: false,
+  //   kariera: false,
+  //   wewnętrznySpokój: false,
+  // });
 
-  const handleChange = event => {
-    setIsChecked({ ...isChecked, [event.target.name]: event.target.checked });
-    // setDup([...dup, event.target.name])
-  };
-
-  // useEffect(() => {
-  //   let dupa = blogPosts.filter(post => {
-  //     return post.tags.some(e => dup.includes(e))
-  //   })
-  //   console.log(dupa)
-  // }, [isChecked])
+  // const handleChange = event => {
+  //   setIsChecked({ ...isChecked, [event.target.name]: event.target.checked });
+  // };
 
   const blogCard = blogPosts.map((post, i) => {
     return (
@@ -69,20 +68,21 @@ const BlogMain = () => {
     );
   });
 
-  const blogCategory = blogCategories.map((el, i) => {
-    return (
-      <BlogCategory
-        key={i}
-        category={el.category}
-        checked={isChecked[el.category]}
-        handleChange={handleChange}
-      />
-    );
-  });
+  // const blogCategory = blogCategories.map((el, i) => {
+  //   return (
+  //     <BlogCategory
+  //       key={i}
+  //       category={el.category}
+  //       checked={isChecked[el.category]}
+  //       handleChange={handleChange}
+  //       size={Math.random() * (1.7 - 0.8) + 0.8}
+  //     />
+  //   );
+  // });
 
   return (
     <StyledWrapper>
-      <StyledCategoriesWrapper>{blogCategory}</StyledCategoriesWrapper>
+      {/* <StyledCategoriesWrapper>{blogCategory}</StyledCategoriesWrapper> */}
       <StyledCardsWrapper>{blogCard}</StyledCardsWrapper>
     </StyledWrapper>
   );

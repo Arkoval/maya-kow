@@ -1,55 +1,100 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
-import Facebook from "../../images/facebook.inline.svg"
-import LinkedIn from "../../images/linkedin.inline.svg"
-import Email from "../../images/email.inline.svg"
+import Facebook from '../../images/facebook.inline.svg';
+import LinkedIn from '../../images/linkedin.inline.svg';
+import Email from '../../images/email.inline.svg';
 
 const StyledFooter = styled.footer`
-margin: 0 auto;
-margin-top: 2rem;
-width: 90%;
-border-top: 2px solid ${({theme}) => theme.colors.green};
-
-
-`
-const StyledWrapper = styled.span`
-${({theme}) => theme.mixins.flex('flex', 'row', 'center', 'flex-end')};
-padding: 2rem;
-  svg {
-    width: 3rem;
-    height: 3rem;
-    margin-left: 2rem;
-    fill: ${({ theme }) => theme.colors.dark};
+  border-top: 1px solid ${({ color }) => color};
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding: 1rem;
+  ${({ theme }) => theme.media.md} {
+    padding: 3rem;
   }
-`
-const StyledLink = styled.a``
+`;
+const StyledWrapper = styled.div`
+  width: 80%;
+  margin: 0 auto;
+  ${({ theme }) =>
+    theme.mixins.flex('flex', 'row', 'flex-start', 'space-evenly')};
+  flex-wrap: wrap;
+`;
+const StyledInnerWrapper = styled.span`
+  ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')}
+  text-align: center;
+  margin-top: 2rem;
+  ${({ theme }) => theme.media.md} {
+    margin-top: 1rem;
+    min-width: 0;
+    &:nth-child(2) {
+      order: 3;
+    }
+    &:nth-child(3) {
+      order: 2;
+    }
+  }
+  svg {
+    width: 2rem;
+    height: 2rem;
+    fill: ${({ color }) => color};
 
+    ${({ theme }) => theme.media.md} {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+`;
+const StyledLink = styled.a``;
+const StyledHeading = styled.h2`
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.dark};
+  margin: 0.5rem;
+`;
 const StyledParagraph = styled.p`
-color: ${({theme}) => theme.colors.dark};
-font-weight: 500;
-font-size: 1.2rem;
-`
-const Footer = () => {
+  color: ${({ theme }) => theme.colors.dark};
+  font-weight: 100;
 
-    return <>
-        <StyledFooter>
-            <StyledWrapper>
+  strong {
+    font-weight: 400;
+  }
+`;
+
+const Footer = ({ color }) => {
+  return (
+    <>
+      <StyledFooter color={color}>
+        <StyledWrapper>
+          <StyledInnerWrapper color={color}>
+            <StyledLink href="https://www.facebook.pl/">
+              <Facebook />
+            </StyledLink>
+            <StyledHeading>Facebook</StyledHeading>
+            <StyledParagraph>Zajrzyj do mnie</StyledParagraph>
+          </StyledInnerWrapper>
+
+          <StyledInnerWrapper color={color}>
+            <StyledLink href="https://www.linkedin.pl/">
+              <LinkedIn />
+            </StyledLink>
+            <StyledHeading>LinkedIn</StyledHeading>
+            <StyledParagraph>Zapraszam Cię do sieci</StyledParagraph>
+          </StyledInnerWrapper>
+          <StyledInnerWrapper color={color}>
+            <StyledLink href="mailto:hello@magdalena-kowalska.pl">
+              <Email />
+            </StyledLink>
+            <StyledHeading>Email</StyledHeading>
             <StyledParagraph>
-                Odwiedź moje sociale
+              Napisz do mnie
+              <br /> <strong>hello@magdalena-kowalska.pl</strong>
             </StyledParagraph>
-        <StyledLink href="https://www.facebook.pl/">
-            <Facebook />
-          </StyledLink>
-          <StyledLink href="https://www.linkedin.pl/">
-            <LinkedIn />
-          </StyledLink>
-          <StyledLink href="https://www.facebook.pl/">
-            <Email />
-          </StyledLink>
+          </StyledInnerWrapper>
         </StyledWrapper>
-        </StyledFooter>
+      </StyledFooter>
     </>
-
-}
+  );
+};
 
 export default Footer;

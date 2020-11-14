@@ -1,32 +1,50 @@
-import React from "react"
-import styled from "styled-components"
-import HeroImage from "../../images/hero-img.jpg"
-import HeroNavbar from '../Navbar/HeroNavbar'
+import React from 'react';
+import styled from 'styled-components';
+import HeroImage from '../../images/hero-img.jpg';
+import { theme } from '../../theme/theme';
+import HeroNavbar from '../Navbar/HeroNavbar';
 
 const StyledWrapper = styled.div`
-  display: grid;
-  place-items: center;
-  height: 100vh;
-  background: url(${HeroImage}) no-repeat fixed center;
-`
+  ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')};
+  min-height: 100vh;
+  background: url(${HeroImage}) no-repeat 65%;
+  background-size: cover;
+
+  ${({ theme }) => theme.media.lg} {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background: url(${HeroImage}) no-repeat fixed center;
+  }
+`;
 const StyledHeading = styled.h1`
-  color: ${({theme}) => theme.colors.light};
+  color: ${({ theme }) => theme.colors.light};
   font-family: ${({ theme }) => theme.fonts.paragraf};
-  font-size: 3rem;
-  font-weight: 300;
-  text-align: right;
-`
+  margin-top: 10rem;
+  font-size: 1.5rem;
+  font-weight: 100;
+  text-align: center;
+  ${({ theme }) => theme.media.sm} {
+    font-size: 3rem;
+    text-align: right;
+  }
+  ${({ theme }) => theme.media.lg} {
+    margin-top: 60rem;
+    margin-right: 30rem;
+  }
+`;
 const StyledDiv = styled.div`
-  width: 60%;
-  height: 30%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-`
+  ${({ theme }) => theme.media.lg} {
+    height: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+`;
 const Hero = () => {
   return (
     <>
-    <HeroNavbar/>
+      <HeroNavbar />
       <StyledWrapper>
         <StyledDiv>
           <StyledHeading>
@@ -36,7 +54,7 @@ const Hero = () => {
         </StyledDiv>
       </StyledWrapper>
     </>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

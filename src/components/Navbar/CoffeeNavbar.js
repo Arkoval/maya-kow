@@ -1,54 +1,113 @@
-import { Link } from "gatsby"
-import React from "react"
-import styled from "styled-components"
-import Logo from "../../images/logo.inline.svg"
+import { Link } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import Logo from '../../images/logo.inline.svg';
+import { theme } from '../../theme/theme';
 
 const StyledNav = styled.nav`
-  ${({ theme }) => theme.mixins.flex("flex", "column", "center", "center")};
+  ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')};
   width: 100%;
-`
+`;
+const StyledWrapper = styled.div`
+  background-color: ${({ color }) => color};
+  width: 100%;
+  height: 7rem;
+  display: grid;
+  place-items: center;
+  box-shadow: -5px 6px 13px 0px rgba(0, 0, 0, 0.1);
+
+  ${({ theme }) => theme.media.sm} {
+    height: 9rem;
+  }
+`;
 const StyledNavList = styled.ul`
-  ${({ theme }) => theme.mixins.flex("flex", "row", "center", "space-evenly")};
-  width: 80%;
+  ${({ theme }) => theme.mixins.flex('flex', 'row', 'center', 'space-evenly')};
+  width: 100%;
   list-style: none;
-  padding: 1.5rem;
-`
-const StyledNavItem = styled.li`
-`
+  padding: 1rem;
+
+  ${({ theme }) => theme.media.sm} {
+    width: 60%;
+    padding: 2rem;
+  }
+`;
+const StyledNavItem = styled.li``;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.dark};
-  font-family: ${({theme}) => theme.fonts.primary};
-  font-size: 1.5rem;
-  font-weight: 200;
-`
-const StyledLogo = styled(Logo)`
-  background-color: ${({ theme }) => theme.colors.green};
-  width: 100%;
-  fill: ${({ theme }) => theme.colors.light};
-  height: 7rem;
-`
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: 1rem;
+  cursor: pointer;
 
-const CoffeeNavbar = () => {
+  ${({ theme }) => theme.media.md} {
+    font-size: 1.7rem;
+  }
+
+  &:hover {
+    color: ${({ color }) => color};
+  }
+`;
+const StyledLogo = styled(Logo)`
+  fill: ${({ color, theme }) =>
+    color === theme.colors.green ? theme.colors.darkGreen : theme.colors.light};
+  height: 4rem;
+  ${({ theme }) => theme.media.sm} {
+    height: 6rem;
+  }
+`;
+
+const CoffeeNavbar = ({ color, offer }) => {
+  const link = (color, theme, offer) => {
+    if (color === theme.colors.green) {
+      return (
+        <StyledLink color={color} to={'/download'}>
+          do pobrania
+        </StyledLink>
+      );
+    } else if (color === theme.colors.blue) {
+      return (
+        <StyledLink color={color} to={'/blog'}>
+          blog
+        </StyledLink>
+      );
+    } else if (offer === 'online') {
+      return (
+        <StyledLink color={color} to={'/oferta-wyjazdowa'}>
+          wyjazdy rozwojowe
+        </StyledLink>
+      );
+    } else if (offer === 'travel') {
+      return (
+        <StyledLink color={color} to={'/oferta-online'}>
+          oferta online
+        </StyledLink>
+      );
+    }
+  };
+
   return (
     <>
       <StyledNav>
-        <StyledLogo />
+        <StyledWrapper color={color}>
+          <StyledLogo color={color} />
+        </StyledWrapper>
         <StyledNavList>
           <StyledNavItem>
-            <StyledLink to={"/"}>Strona główna</StyledLink>
+            <StyledLink color={color} to={'/'}>
+              home
+            </StyledLink>
           </StyledNavItem>
+          <StyledNavItem>{link(color, theme, offer)}</StyledNavItem>
           <StyledNavItem>
-            <StyledLink to={"#"}>Do pobrania</StyledLink>
-          </StyledNavItem>
-          <StyledNavItem>
-            <StyledLink to={"#"}>Kontakt</StyledLink>
+            <StyledLink color={color} to={'#'}>
+              kontakt
+            </StyledLink>
           </StyledNavItem>
         </StyledNavList>
       </StyledNav>
     </>
-  )
-}
+  );
+};
 
-export default CoffeeNavbar
+export default CoffeeNavbar;

@@ -1,73 +1,116 @@
-import { Link } from "gatsby"
-import React from "react"
-import styled from "styled-components"
-import Name from "../../images/name.inline.svg"
+import { Link } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import Name from '../../images/name.inline.svg';
 
 const StyledSection = styled.section`
-  height: 100vh;
-  ${({theme}) => theme.mixins.flex('flex', 'column', 'center', 'center')}
-`
+  ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')}
+  margin-top: 2rem;
+`;
 const StyledWrapper = styled.div`
-${({theme}) => theme.mixins.flex('flex', 'row', 'center', 'space-evenly')};
-width: 75%;
+  ${({ theme }) => theme.mixins.flex('flex', 'row', 'center', 'space-evenly')};
+  max-width: 95%;
+  flex-wrap: wrap;
 
-`
+  ${({ theme }) => theme.media.sm} {
+    ${({ theme }) =>
+      theme.mixins.flex('flex', 'row', 'center', 'space-evenly')};
+    width: 75%;
+  }
+`;
 const StyledImage = styled.img`
-  width: 22%;
+  width: 45%;
+  margin-bottom: 0.8rem;
   height: 100%;
   object-fit: cover;
-`
+  ${({ theme }) => theme.media.sm} {
+    width: 22%;
+  }
+`;
 const StyledTextWrapper = styled.div`
   text-align: justify;
-  width: 45%;
+  width: 90%;
   margin-top: 1rem;
-`
+  ${({ theme }) =>
+    theme.mixins.flex('flex', 'column', 'flex-start', 'space-evenly')}
+  ${({ theme }) => theme.media.sm} {
+    width: 45%;
+  }
+`;
 const StyledHeading = styled.h1`
   font-family: ${({ theme }) => theme.fonts.paragraf};
   font-weight: 600;
   margin-bottom: 1rem;
-`
+`;
 
 const StyledSpan = styled.span`
+  position: relative;
   display: block;
   margin: 1rem 0 1rem 0;
   font-weight: 600;
-`
-const StyledParagraph = styled.p``
-const StyledLink = styled(Link)`
-  color: ${({theme}) => theme.colors.dark};
-  text-decoration: none;
-  font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 1.2rem;
-  cursor: pointer;
 
-`
+  &::before {
+    content: '';
+    height: 0.8rem;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background-color: ${({ theme }) => theme.colors.green};
+    z-index: -1;
+
+    ${({ theme }) => theme.media.lg} {
+      width: 30%;
+    }
+  }
+`;
+const StyledParagraph = styled.p``;
+const StyledLink = styled(Link)`
+  color: ${({ theme }) => theme.colors.dark};
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-family: ${({ theme }) => theme.fonts.heading};
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: 1rem;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.green};
+  }
+
+  ${({ theme }) => theme.media.sm} {
+    font-size: 1.2rem;
+  }
+`;
 const StyledNameSvg = styled(Name)`
-  width: 5rem;
-  margin: 0 0 0 1rem;
-`
+  width: 4rem;
+  margin: 0 0 -1rem 1rem;
+  ${({ theme }) => theme.media.sm} {
+    width: 5rem;
+  }
+`;
 
 const AboutMain = () => {
   return (
     <>
-      <StyledSection>
+      <StyledSection id={'kim-jestem'}>
         <StyledWrapper>
-        <StyledImage
-          src={require("../../images/about_1.jpg")}
-          alt="moje zdjecie"
-        />
-        <StyledImage
-          src={require("../../images/about_2.jpg")}
-          alt="moje zdjecie"
-        />
-        <StyledImage
-          src={require("../../images/about_3.jpg")}
-          alt="moje zdjecie"
-        />
-        <StyledImage
-          src={require("../../images/about_4.jpg")}
-          alt="moje zdjecie"
-        />
+          <StyledImage
+            src={require('../../images/about_1.jpg')}
+            alt="moje zdjecie"
+          />
+          <StyledImage
+            src={require('../../images/about_2.jpg')}
+            alt="moje zdjecie"
+          />
+          <StyledImage
+            src={require('../../images/about_3.jpg')}
+            alt="moje zdjecie"
+          />
+          <StyledImage
+            src={require('../../images/about_4.jpg')}
+            alt="moje zdjecie"
+          />
         </StyledWrapper>
         <StyledTextWrapper>
           <StyledHeading>
@@ -104,11 +147,11 @@ const AboutMain = () => {
             ucząc się na tych błędach. Jednocześnie współpracują, zamiast
             konkurować i wspólnie osiągają ambitne biznesowe cele.
           </StyledParagraph>
+          <StyledLink to="/o-mnie">czytaj dalej...</StyledLink>
         </StyledTextWrapper>
-        <StyledLink to="/o-mnie">czytaj dalej...</StyledLink>
       </StyledSection>
     </>
-  )
-}
+  );
+};
 
-export default AboutMain
+export default AboutMain;

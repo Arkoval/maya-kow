@@ -18,17 +18,19 @@ module.exports = {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'magda-kowalska',
-        accessToken: 'MC5YNUdFMEJBQUFDSUFZbng1.77-9JSHvv73vv73vv71o77-9SDHvv71tSe-_ve-_ve-_ve-_ve-_ve-_vTfvv71Y77-977-9G--_ve-_ve-_ve-_ve-_ve-_ve-_vQ',
+        accessToken:
+          'MC5YNUdFMEJBQUFDSUFZbng1.77-9JSHvv73vv73vv71o77-9SDHvv71tSe-_ve-_ve-_ve-_ve-_ve-_vTfvv71Y77-977-9G--_ve-_ve-_ve-_ve-_ve-_ve-_vQ',
         schemas: {
           blog_post: require('./src/schemas/blog_post.json'),
+          course: require('./src/schemas/course.json'),
+          blog_categories: require('./src/schemas/blog_categories.json'),
         },
         lang: '*',
         prismicToolbar: false,
         shouldDownloadImage: ({ node, key, value }) => {
           return true;
         },
-        typePathsFilenamePrefix:
-          'prismic-typepaths---magda-kowalska',
+        typePathsFilenamePrefix: 'prismic-typepaths---magda-kowalska',
       },
     },
     {
@@ -45,9 +47,9 @@ module.exports = {
             variants: [`300`, `400`],
           },
           {
-            family: `Lato`,
+            family: `Montserrat`,
             subsets: [`latin-ext`],
-            variants: [`300`, `400`],
+            variants: [`100`, `200`, '300', '400'],
           },
         ],
       },
@@ -77,4 +79,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

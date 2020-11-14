@@ -3,7 +3,7 @@ import { GlobalStyle } from '../theme/global';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../theme/theme';
 import Navbar from '../components/Navbar/Navbar';
-import Footer from "../components/Footer/Footer"
+import Footer from '../components/Footer/Footer';
 
 const MainTemplate = ({ children }) => {
   return (
@@ -11,7 +11,7 @@ const MainTemplate = ({ children }) => {
       <GlobalStyle />
       <Navbar />
       {children}
-      <Footer/>
+      <Footer />
     </ThemeProvider>
   );
 };
