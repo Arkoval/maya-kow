@@ -24,6 +24,7 @@ module.exports = {
           blog_post: require('./src/schemas/blog_post.json'),
           course: require('./src/schemas/course.json'),
           blog_categories: require('./src/schemas/blog_categories.json'),
+          opinions: require('./src/schemas/opinions.json'),
         },
         lang: '*',
         prismicToolbar: false,

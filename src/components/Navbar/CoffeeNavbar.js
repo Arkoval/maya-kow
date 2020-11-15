@@ -100,9 +100,15 @@ const CoffeeNavbar = ({ color, offer }) => {
           </StyledNavItem>
           <StyledNavItem>{link(color, theme, offer)}</StyledNavItem>
           <StyledNavItem>
-            <StyledLink color={color} to={'#'}>
-              kontakt
-            </StyledLink>
+            {color === theme.colors.red ? (
+              <StyledLink color={color} to={'/opinie'}>
+                opinie
+              </StyledLink>
+            ) : (
+              <StyledLink color={color} to={'/#kontakt'}>
+                kontakt
+              </StyledLink>
+            )}
           </StyledNavItem>
         </StyledNavList>
       </StyledNav>

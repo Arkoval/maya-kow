@@ -1,59 +1,72 @@
 {
-  "Main" : {
-    "title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1, heading2",
-        "label" : "title"
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2",
+        "label": "title"
       }
     },
-    "uid" : {
-      "type" : "UID",
-      "config" : {
-        "label" : "slug"
+    "title2": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2",
+        "label": "title2"
       }
     },
-    "date" : {
-      "type" : "Date",
-      "config" : {
-        "label" : "date"
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "slug"
       }
     },
-    "image" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : { },
-        "thumbnails" : [ ],
-        "label" : "image"
+    "date": {
+      "type": "Date",
+      "config": {
+        "label": "date"
       }
     },
-    "text" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, preformatted, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "allowTargetBlank" : true,
-        "label" : "text"
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "image"
       }
     },
-    "text_2" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, preformatted, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label" : "text_2"
+    "text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "allowTargetBlank": true,
+        "label": "text"
       }
     },
-    "tags" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "tag" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "tag"
+    "text_2": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "text_2"
+      }
+    },
+    "color": {
+      "type": "Text",
+      "config": {
+        "label": "color"
+      }
+    },
+    "tags": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "tag": {
+            "type": "Text",
+            "config": {
+              "label": "tag"
             }
           }
         },
-        "label" : "tags"
+        "label": "tags"
       }
     }
   }

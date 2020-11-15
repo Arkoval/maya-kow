@@ -10,19 +10,19 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledTextWrapper = styled.div`
-  ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')};
+  ${({ theme }) => theme.mixins.flex('flex', 'column', 'flex-start', 'center')};
   margin: 1rem auto;
   width: 100%;
-  text-align: center;
+  text-align: left;
   ${({ theme }) => theme.media.md} {
     width: 20%;
   }
 `;
 const StyledOuterWrapper = styled.div`
-  ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')};
+  ${({ theme }) => theme.mixins.flex('flex', 'column', 'flex-start', 'center')};
   margin: 1rem auto;
   width: 100%;
-  text-align: center;
+  text-align: left;
   ${({ theme }) => theme.media.md} {
     padding: 1rem;
     border-bottom: 1px solid ${({ theme }) => theme.colors.green};
@@ -92,16 +92,16 @@ const Numbers = () => {
           <StyledParagraph>
             lat pracy na 9 stanowiskach: od stażystki w firmie rekrutacyjnej,
             przez kilka stanowisk menadżerskich, do dyrektora odpowiedzialnego
-            za strategię HR dla biznesu na poziomie Europy.
+            za strategię HR dla biznesu na poziomie Europy
           </StyledParagraph>
         </StyledOuterWrapper>
         <StyledInnerWrapper>
           <StyledTextWrapper>
             <StyledHeading>12+</StyledHeading>
             <StyledParagraph>
-              lat spędzonych w szkołach. Skończyłam socjologię i psychologię
-              biznesu, szkoły coachingu: indywidualnego i grupowego, szkołę
-              trenerów NVC (Porozumienia bez Przemocy) oraz facylitacji.
+              lat spędzonych w szkołach. Skończyłam socjologię i psychologię,
+              szkoły coachingu: indywidualnego i grupowego, facylitacji oraz
+              szkołę trenerów&nbsp;NVC (Porozumienia bez Przemocy)
             </StyledParagraph>
           </StyledTextWrapper>
           <StyledTextWrapper>
@@ -112,13 +112,13 @@ const Numbers = () => {
             <StyledHeading>4.500+</StyledHeading>
             <StyledParagraph>
               godzin przeprowadzonych warsztatów, szkoleń, facylitacji procesów
-              grupowych.
+              grupowych
             </StyledParagraph>
           </StyledTextWrapper>
           <StyledTextWrapper>
             <StyledHeading>3.000+</StyledHeading>
             <StyledParagraph>
-              godzin przeprowadzonych procesów coachingowych i mentoringowych.
+              godzin przeprowadzonych procesów coachingowych i mentoringowych
             </StyledParagraph>
           </StyledTextWrapper>
         </StyledInnerWrapper>
@@ -127,7 +127,7 @@ const Numbers = () => {
             <StyledSvg />
           </StyledLink>
           Zajrzyj na mój profil na LinkedIn, jeśli chcesz zobaczyć pełen obraz
-          moich ról i firm, w których pracowałam.
+          moich ról i firm, w&nbsp;których pracowałam.
         </StyledSpan>
       </StyledWrapper>
     </>

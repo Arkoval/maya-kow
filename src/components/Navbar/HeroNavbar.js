@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { routes } from '../../routes/routes';
 import Logo from '../../images/logoHero.inline.svg';
+import { animationScroll } from '../../utils/Animations';
 
 const StyledNav = styled.nav`
   position: absolute;
@@ -37,7 +38,11 @@ const StyledNavItem = styled.li`
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.button`
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.light};
   font-size: 1rem;
@@ -55,10 +60,14 @@ const StyledLogo = styled(Logo)`
 `;
 
 const Navbar = () => {
+  const goToHandler = e => {
+    animationScroll(e.target.name);
+  };
+
   const navLinks = routes.map(route => {
     return (
       <StyledNavItem key={route.name}>
-        <StyledLink to={route.path}>{route.name}</StyledLink>
+        <StyledLink name={route.subName}>{route.name}</StyledLink>
       </StyledNavItem>
     );
   });
@@ -67,7 +76,7 @@ const Navbar = () => {
     <>
       <StyledNav>
         <StyledLogo />
-        <StyledNavList>{navLinks}</StyledNavList>
+        <StyledNavList onClick={goToHandler}>{navLinks}</StyledNavList>
       </StyledNav>
     </>
   );

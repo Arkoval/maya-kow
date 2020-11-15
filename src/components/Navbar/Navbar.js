@@ -1,7 +1,8 @@
-import { Link } from 'gatsby';
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+// import { Link } from 'gatsby';
+import React, { useLayoutEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { routes } from '../../routes/routes';
+import { animationScroll } from '../../utils/Animations';
 
 const StyledNav = styled.div`
   height: 100vh;
@@ -27,9 +28,13 @@ const StyledNavItem = styled.li`
   text-align: left;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.button`
   position: relative;
   text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  border: none;
   color: ${({ theme }) => theme.colors.dark};
   font-family: ${({ theme }) => theme.fonts.paragraf};
   font-size: 2.5rem;
@@ -146,6 +151,11 @@ const Navbar = () => {
 
   const handleActive = () => setIsActive(!isActive);
 
+  const goToHandler = e => {
+    handleActive();
+    animationScroll(e.target.name);
+  };
+
   function updateScroll() {
     if (window.innerWidth < 796) {
       setVisible(true);
@@ -164,7 +174,7 @@ const Navbar = () => {
   const navLinks = routes.map(route => {
     return (
       <StyledNavItem key={route.name}>
-        <StyledLink to={route.path}>{route.name}</StyledLink>
+        <StyledLink name={route.subName}>{route.name}</StyledLink>
       </StyledNavItem>
     );
   });
@@ -177,7 +187,7 @@ const Navbar = () => {
         </StyledNavButtonWrapper>
       </StyledNavButton>
       <StyledNav isActive={isActive}>
-        <StyledNavList>{navLinks}</StyledNavList>
+        <StyledNavList onClick={goToHandler}>{navLinks}</StyledNavList>
       </StyledNav>
     </div>
   );

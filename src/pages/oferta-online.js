@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import CoffeeTemplate from '../layout/CoffeeTemplate';
 import Courses from '../components/Courses/Courses';

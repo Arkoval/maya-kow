@@ -30,7 +30,7 @@ const StyledWrapper = styled.div`
   }
 `;
 const StyledTextWrapper = styled.div`
-  /* text-align: justify; */
+  text-align: justify;
 
   ${({ theme }) => theme.media.sm} {
     width: 70%;
@@ -70,7 +70,7 @@ const StyledHeading = styled.h1`
 `;
 
 const StyledParagraph = styled.p`
-  margin: 2rem 0;
+  margin: 0.5rem 0;
 `;
 
 const StyledLink = styled(Link)`
@@ -94,14 +94,19 @@ const AboutSubPageTwo = () => {
           <StyledTextWrapper>
             <StyledHeading>ja to nie tylko moja praca</StyledHeading>
             <StyledParagraph>
-              Moja rodzina wpisuje się w definicję włoskiej rodziny – jesteśmy
-              głośni i intensywni, co potwierdzi każdy nasz sąsiad. Mam męża,
-              który wytrzymuje ze mną od 30 lat, dwóch synów: dorosłego i
-              nastolatka. I psa – Lolkę, która większość czasu w domu, spędza
-              czuwając przy lodówce. Jestem nauczycielką jogi kundalini,
-              wegetarianką i ekologiczną terrorystką (jak mówi mój mąż). Kocham
-              czerwone włoskie wino, maliny, słońce, morze i listopad. Gdy
-              wchodzę do księgarni – przejawiam wszelkie znamiona uzależnienia.
+              Moja rodzina wpisuje się w definicję włoskiej rodziny: jesteśmy
+              głośni i intensywni, co potwierdzi każdy nasz sąsiad.
+            </StyledParagraph>{' '}
+            <StyledParagraph>
+              Mam męża, który wytrzymuje ze mną od 30 lat, dwóch synów:
+              dorosłego i nastolatka. I psa – Lolkę, która większość czasu w
+              domu, spędza czuwając przy lodówce.
+            </StyledParagraph>{' '}
+            <StyledParagraph>
+              Jestem nauczycielką jogi kundalini, wegetarianką i ekologiczną
+              terrorystką (jak mówi mój mąż). Kocham czerwone włoskie wino,
+              maliny, słońce, morze i listopad. Gdy wchodzę do księgarni –
+              przejawiam wszelkie znamiona uzależnienia.
             </StyledParagraph>
             <StyledLink to="/#o-mnie">wróć...</StyledLink>
           </StyledTextWrapper>

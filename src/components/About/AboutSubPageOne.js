@@ -11,7 +11,7 @@ const StyledWrapper = styled.div`
 
   ${({ theme }) => theme.media.sm} {
     ${({ theme }) =>
-      theme.mixins.flex('flex', 'row', 'center', 'space-between')};
+      theme.mixins.flex('flex', 'row', 'flex-start', 'space-between')};
     width: 70%;
     margin-top: 2rem;
     flex-wrap: nowrap;
@@ -41,7 +41,28 @@ const StyledHeading = styled.h1`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 1.2rem;
   margin-top: 1rem;
-  text-align: center;
+  position: relative;
+
+  &::before {
+    content: '';
+    height: 0.8rem;
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background-color: ${({ theme }) => theme.colors.green};
+    z-index: -1;
+
+    ${({ theme }) => theme.media.xs} {
+      display: none;
+    }
+    ${({ theme }) => theme.media.md} {
+      display: inline;
+      width: 60%;
+      height: 1rem;
+      top: 30%;
+    }
+  }
 
   ${({ theme }) => theme.media.lg} {
     font-size: 2rem;
@@ -67,10 +88,14 @@ const AboutSubPageOne = () => {
               Na macie do jogi. Ale przede wszystkim w pracy z kobietami.
               Rozciąganie, czyli przekraczanie granic strefy komfortu. Czyli
               budowanie pewności siebie, poprzez robienie rzeczy, które
-              początkowo przerażają lub wydają się niemożliwe. Uwielbiam
-              rozciągać kobiety. O milimetr. O centymetr. A potem znowu.
-              Uwielbiam patrzeć, jak rosną i rozwijają skrzydła. Jak sięgają po
-              to, czego pragną – odważnie i ze spokojną pewnością.
+              początkowo przerażają lub wydają się niemożliwe.
+            </StyledParagraph>
+            <StyledParagraph>
+              {' '}
+              Tak więc uwielbiam rozciągać kobiety. O milimetr. O centymetr. A
+              potem znowu. Uwielbiam patrzeć, jak rosną i rozwijają skrzydła.
+              Jak sięgają po to, czego pragną – odważnie i ze spokojną
+              pewnością.
             </StyledParagraph>
           </StyledTextWrapper>
           <StyledTextWrapper>
@@ -79,11 +104,15 @@ const AboutSubPageOne = () => {
               Nie potrafię usiedzieć w jednym miejscu. Przeprowadzaliśmy się
               częściej niż dziesięć razy. Uwielbiam chaos i nieznane tuż przed
               zmianą, a chwilę potem - porządek i spokój, jakie pojawiają się
-              tuż po rozpakowaniu ostatniego pudła. Najbardziej naturalnie
-              przychodzi mi podważanie tego, co oczywiste i nawykowe. Oglądałaś
-              Spidermana? On miał pajęczy zmysł odczytujący niebezpieczeństwo,
-              ja mam pajęczy zmysł reagujący na „prawdy oczywiste”. Zwłaszcza
-              te, które paraliżują i tłumią potencjał ludzi.
+              tuż po rozpakowaniu ostatniego pudła.{' '}
+            </StyledParagraph>
+            <StyledParagraph>
+              {' '}
+              Najbardziej naturalnie przychodzi mi podważanie tego, co oczywiste
+              i nawykowe. Oglądałaś Spidermana? On miał pajęczy zmysł
+              odczytujący niebezpieczeństwo, ja mam pajęczy zmysł reagujący na
+              „prawdy oczywiste”. Zwłaszcza te, które paraliżują i tłumią
+              potencjał ludzi.
             </StyledParagraph>
           </StyledTextWrapper>
         </StyledWrapper>

@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import BlogCard from './BlogCard';
 import BlogCategory from './BlogCategory';
 
@@ -31,7 +31,7 @@ const StyledCardsWrapper = styled.div`
 const BlogMain = () => {
   const { allPrismicBlogPost, prismicBlogCategories } = useStaticQuery(query);
   const blogPosts = allPrismicBlogPost.nodes;
-  const blogCategories = prismicBlogCategories.data.categories;
+  // const blogCategories = prismicBlogCategories.data.categories;
   // const [isChecked, setIsChecked] = useState({
   //   tipsy: false,
   //   przywództwo: false,
@@ -63,6 +63,7 @@ const BlogMain = () => {
         key={i}
         img={post.data.image.url}
         title={post.data.title.text}
+        title2={post.data.title2 != null ? post.data.title2.text : false}
         link={post.uid}
       />
     );
@@ -88,6 +89,10 @@ const BlogMain = () => {
   );
 };
 
+BlogMain.defaultProps = {
+  title2: 'noga',
+};
+
 export default BlogMain;
 
 export const query = graphql`
@@ -99,7 +104,7 @@ export const query = graphql`
         }
       }
     }
-    allPrismicBlogPost {
+    allPrismicBlogPost(sort: { fields: data___date, order: DESC }) {
       nodes {
         data {
           date
@@ -112,6 +117,9 @@ export const query = graphql`
             text
           }
           title {
+            text
+          }
+          title2 {
             text
           }
           text_2 {

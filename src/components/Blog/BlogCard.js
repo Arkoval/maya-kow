@@ -20,7 +20,7 @@ const StyledWrapper = styled.div`
     height: 23rem;
   }
 `;
-const StyledHeading = styled.h2`
+const StyledHeadingContainer = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
@@ -39,13 +39,17 @@ const StyledHeading = styled.h2`
     padding: 1.5rem;
   }
 `;
+const StyledHeading = styled.h2``;
 
-const BlogCard = ({ img, title, link }) => {
+const BlogCard = ({ img, title, title2, link }) => {
   return (
     <StyledWrapper>
       <Link to={link}>
         <StyledImg src={img}></StyledImg>
-        <StyledHeading>{title}</StyledHeading>
+        <StyledHeadingContainer>
+          <StyledHeading>{title}</StyledHeading>
+          {title2 ? <StyledHeading>{title2}</StyledHeading> : null}
+        </StyledHeadingContainer>
       </Link>
     </StyledWrapper>
   );

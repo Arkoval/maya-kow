@@ -8,6 +8,7 @@ import MainTemplate from '../layout/MainTemplate';
 import Cooperation from '../components/Cooperation/Cooperation';
 import ForCoffee from '../components/ForCoffee/ForCoffee';
 import Contact from '../components/Contact/Contact';
+import Opinions from '../components/opinions/Opinions';
 
 const IndexPage = () => (
   <MainTemplate>
@@ -17,6 +18,7 @@ const IndexPage = () => (
     <Numbers />
     <Offer />
     <Cooperation />
+    <Opinions />
     <ForCoffee />
     <Contact />
   </MainTemplate>
