@@ -114,7 +114,7 @@ const Contact = () => {
   return (
     <>
       <StyledSection id={'kontakt'}>
-        <StyledImage src={ContactPhoto} />
+        <StyledImage src={ContactPhoto} alt={'portret'} />
         <StyledWrapper>
           <StyledInnerWrapper>
             <StyledHeading>zapisz się na coffee letters</StyledHeading>

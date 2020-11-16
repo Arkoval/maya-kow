@@ -78,10 +78,14 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 0.8rem;
   font-family: ${({ theme }) => theme.fonts.heading};
+  color: ${({ theme }) => theme.colors.dark};
   align-self: flex-end;
   outline: none;
   ${({ theme }) => theme.media.sm} {
     font-size: 1.2rem;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.colors.green};
   }
 `;
 
@@ -89,7 +93,7 @@ const AboutSubPageTwo = () => {
   return (
     <>
       <StyledSection>
-        <StyledImage src={Dog} />
+        <StyledImage src={Dog} alt={'zdjęcie z psem'} />
         <StyledWrapper>
           <StyledTextWrapper>
             <StyledHeading>ja to nie tylko moja praca</StyledHeading>

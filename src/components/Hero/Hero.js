@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import HeroImage from '../../images/hero-img.jpg';
 import { theme } from '../../theme/theme';
@@ -9,6 +9,7 @@ const StyledWrapper = styled.div`
   min-height: 100vh;
   background: url(${HeroImage}) no-repeat 65%;
   background-size: cover;
+  position: relative;
 
   ${({ theme }) => theme.media.lg} {
     display: grid;
@@ -41,6 +42,7 @@ const StyledDiv = styled.div`
     align-items: flex-end;
   }
 `;
+
 const Hero = () => {
   return (
     <>

@@ -63,6 +63,9 @@ const StyledLink = styled(Link)`
   ${({ theme }) => theme.media.md} {
     font-size: 2rem;
   }
+  &:hover {
+    color: ${({ theme }) => theme.colors.green};
+  }
 `;
 const StyledSpan = styled.span`
   padding-top: 1rem;
@@ -73,7 +76,7 @@ const ForCoffee = () => {
   return (
     <>
       <StyledSection id={'do-kawy'}>
-        <StyledImage src={CoffeeImage} />
+        <StyledImage src={CoffeeImage} alt={'zdjęcie z kawą'} />
         <StyledWrapper>
           <StyledParagraph>
             Zatrzymaj się. Ciałem i umysłem.

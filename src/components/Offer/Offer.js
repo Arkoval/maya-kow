@@ -6,6 +6,7 @@ import Teams from '../../images/offer_2.jpeg';
 import { animationLeft, animationRight } from '../../utils/Animations';
 
 const StyledSection = styled.section`
+  overflow: hidden;
   width: 90%;
   margin: 1rem auto;
   ${({ theme }) =>
@@ -135,7 +136,7 @@ const StyledPowderSvg = styled(Powder)`
 const Offer = () => {
   let left = useRef(null);
   let right = useRef(null);
-  let container = useRef(null);
+  let start = useRef(null);
   let [isActive, setIsActive] = useState({
     boxOne: false,
     boxTwo: false,
@@ -146,15 +147,15 @@ const Offer = () => {
     console.log(e.target.name);
   };
   useEffect(() => {
-    // animationLeft(left);
-    // animationRight(right);
-  });
+    animationLeft(left, start);
+    animationRight(right, left);
+  }, [!isActive]);
 
   return (
     <>
       <StyledSection id={'co-robie'}>
         <StyledBackgroundHeading>co robię?</StyledBackgroundHeading>
-        <StyledOfferParagraph>
+        <StyledOfferParagraph ref={e => (start = e)}>
           Pracuję głównie z kobietami w biznesie: managerkami na różnych
           poziomach w organizacji. Pomagam im odnaleźć i zintegrować ich
           kobiecość, zagubioną w drodze po sukces. By budziły się każdego ranka
@@ -200,7 +201,7 @@ const Offer = () => {
             left = e;
           }}
         >
-          <StyledImage src={Change} />
+          <StyledImage src={Change} alt={'wzrastająca roślina'} />
           <StyledInnerWrapper>
             <StyledHeading>miękka zmiana</StyledHeading>
             <StyledParagraph>
@@ -249,7 +250,7 @@ const Offer = () => {
             right = e;
           }}
         >
-          <StyledImage src={Teams} />
+          <StyledImage src={Teams} alt={'zespołowy skok spadochronowy'} />
           <StyledInnerWrapper>
             <StyledHeading>uskrzydlone zespoły</StyledHeading>
             <StyledParagraph>

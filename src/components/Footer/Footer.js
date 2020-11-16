@@ -66,14 +66,20 @@ const Footer = () => {
       <StyledFooter>
         <StyledWrapper>
           <StyledInnerWrapper>
-            <StyledLink href="https://www.facebook.pl/">
+            <StyledLink
+              href="https://www.facebook.com/Magdalena-Kowalska-111505280625139"
+              target="_blank"
+            >
               <Facebook />
             </StyledLink>
             <StyledHeading>Facebook</StyledHeading>
             <StyledParagraph>Zajrzyj do mnie</StyledParagraph>
           </StyledInnerWrapper>
           <StyledInnerWrapper>
-            <StyledLink href="https://www.linkedin.pl/">
+            <StyledLink
+              href="https://www.linkedin.com/in/makowalska/?fbclid=IwAR3m0rVr6HuW9moQbcAyzwc0rvSTz6-d_Vvzld2dP3zM1KP1WBSna6BIXxk"
+              target="_blank"
+            >
               <LinkedIn />
             </StyledLink>
             <StyledHeading>LinkedIn</StyledHeading>

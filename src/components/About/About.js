@@ -1,7 +1,8 @@
 import { Link } from 'gatsby';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Name from '../../images/name.inline.svg';
+import { animationLeft } from '../../utils/Animations';
 import TextFormatter from '../../utils/TextFormatter';
 
 const StyledSection = styled.section`
@@ -19,14 +20,31 @@ const StyledWrapper = styled.div`
     width: 75%;
   }
 `;
+// const StyledImage = styled.img`
+//   width: 45%;
+//   margin-bottom: 0.8rem;
+//   height: 100%;
+//   object-fit: cover;
+//   ${({ theme }) => theme.media.sm} {
+//     width: 22%;
+//   }
+// `;
 const StyledImage = styled.img`
-  width: 45%;
-  margin-bottom: 0.8rem;
   height: 100%;
+  width: 100%;
   object-fit: cover;
-  ${({ theme }) => theme.media.sm} {
-    width: 22%;
+  transition: 0.15s ease-in;
+
+  &:hover {
+    transform: scale(1.05);
   }
+`;
+
+const StyledImageWrapper = styled.div`
+  width: 22%;
+  height: 100%;
+  margin-bottom: 0.8rem;
+  overflow: hidden;
 `;
 const StyledTextWrapper = styled.div`
   text-align: justify;
@@ -97,22 +115,30 @@ const AboutMain = () => {
     <>
       <StyledSection id={'kim-jestem'}>
         <StyledWrapper>
-          <StyledImage
-            src={require('../../images/about_1.jpg')}
-            alt="moje zdjecie"
-          />
-          <StyledImage
-            src={require('../../images/about_2.jpg')}
-            alt="moje zdjecie"
-          />
-          <StyledImage
-            src={require('../../images/about_3.jpg')}
-            alt="moje zdjecie"
-          />
-          <StyledImage
-            src={require('../../images/about_4.jpg')}
-            alt="moje zdjecie"
-          />
+          <StyledImageWrapper>
+            <StyledImage
+              src={require('../../images/about_1.jpg')}
+              alt="śmiech"
+            />
+          </StyledImageWrapper>
+          <StyledImageWrapper>
+            <StyledImage
+              src={require('../../images/about_2.jpg')}
+              alt="wstyd"
+            />
+          </StyledImageWrapper>
+          <StyledImageWrapper>
+            <StyledImage
+              src={require('../../images/about_3.jpg')}
+              alt="uwodzenie"
+            />
+          </StyledImageWrapper>
+          <StyledImageWrapper>
+            <StyledImage
+              src={require('../../images/about_4.jpg')}
+              alt="strach"
+            />
+          </StyledImageWrapper>
         </StyledWrapper>
         <StyledTextWrapper>
           <StyledHeading>

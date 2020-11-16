@@ -79,7 +79,7 @@ const AboutSubPageOne = () => {
       <StyledSection>
         <StyledImage
           src={require('../../images/about_5.jpg')}
-          alt="moje zdjecie"
+          alt="zdjęcie z perspektywy"
         />
         <StyledWrapper>
           <StyledTextWrapper>

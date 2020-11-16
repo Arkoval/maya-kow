@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import LinkedIn from '../../images/linkedin.inline.svg';
+import {
+  animationNumbers,
+  animationNumbersStart,
+} from '../../utils/Animations';
 
 const StyledWrapper = styled.div`
   ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')};
@@ -84,11 +88,39 @@ const StyledSvg = styled(LinkedIn)`
 `;
 
 const Numbers = () => {
+  let first = useRef(null);
+  let second = useRef(null);
+  let third = useRef(null);
+  let fourth = useRef(null);
+  let fifth = useRef(null);
+  let [start, setStart] = useState(false);
+
+  const handleStart = () => {
+    if (window.innerWidth < 796) {
+      return;
+    } else window.scrollY > 1800 && setStart(true);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleStart);
+    handleStart();
+    if (start) {
+      animationNumbers(first, 0, 20, 1, 3000, '');
+      animationNumbers(second, 0, 12, 1, 3000, '+');
+      animationNumbers(third, 0, 100, 1, 3000, '+');
+      animationNumbers(fourth, 0, 4500, 5, 8000, '+');
+      animationNumbers(fifth, 0, 3000, 5, 8000, '+');
+    }
+    return () => {
+      window.removeEventListener('scroll', handleStart);
+    };
+  });
+
   return (
     <>
       <StyledWrapper>
         <StyledOuterWrapper>
-          <StyledHeading>20</StyledHeading>
+          <StyledHeading ref={e => (first = e)}>20</StyledHeading>
           <StyledParagraph>
             lat pracy na 9 stanowiskach: od stażystki w firmie rekrutacyjnej,
             przez kilka stanowisk menadżerskich, do dyrektora odpowiedzialnego
@@ -97,7 +129,7 @@ const Numbers = () => {
         </StyledOuterWrapper>
         <StyledInnerWrapper>
           <StyledTextWrapper>
-            <StyledHeading>12+</StyledHeading>
+            <StyledHeading ref={e => (second = e)}>12+</StyledHeading>
             <StyledParagraph>
               lat spędzonych w szkołach. Skończyłam socjologię i psychologię,
               szkoły coachingu: indywidualnego i grupowego, facylitacji oraz
@@ -105,25 +137,28 @@ const Numbers = () => {
             </StyledParagraph>
           </StyledTextWrapper>
           <StyledTextWrapper>
-            <StyledHeading>100+</StyledHeading>
+            <StyledHeading ref={e => (third = e)}>100+</StyledHeading>
             <StyledParagraph>szkoleń, w których uczestniczyłam</StyledParagraph>
           </StyledTextWrapper>
           <StyledTextWrapper>
-            <StyledHeading>4.500+</StyledHeading>
+            <StyledHeading ref={e => (fourth = e)}>4.500+</StyledHeading>
             <StyledParagraph>
               godzin przeprowadzonych warsztatów, szkoleń, facylitacji procesów
               grupowych
             </StyledParagraph>
           </StyledTextWrapper>
           <StyledTextWrapper>
-            <StyledHeading>3.000+</StyledHeading>
+            <StyledHeading ref={e => (fifth = e)}>3.000+</StyledHeading>
             <StyledParagraph>
               godzin przeprowadzonych procesów coachingowych i mentoringowych
             </StyledParagraph>
           </StyledTextWrapper>
         </StyledInnerWrapper>
         <StyledSpan>
-          <StyledLink href="https://www.linkedin.com">
+          <StyledLink
+            href="https://www.linkedin.com/in/makowalska/?fbclid=IwAR3m0rVr6HuW9moQbcAyzwc0rvSTz6-d_Vvzld2dP3zM1KP1WBSna6BIXxk"
+            target="_blank"
+          >
             <StyledSvg />
           </StyledLink>
           Zajrzyj na mój profil na LinkedIn, jeśli chcesz zobaczyć pełen obraz

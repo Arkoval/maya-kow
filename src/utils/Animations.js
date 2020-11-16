@@ -6,24 +6,24 @@ if (typeof window !== `undefined`) {
   gsap.core.globals('ScrollTrigger', ScrollTrigger);
 }
 
-export const animationLeft = (left, container) => {
-  gsap.from(left, 0.5, {
+export const animationLeft = (left, start) => {
+  gsap.from(left, {
     x: -50,
     autoAlpha: 0,
     scrollTrigger: {
-      trigger: left,
+      trigger: start,
       start: 'top top',
       end: '+=100%',
     },
   });
 };
 
-export const animationRight = (right, container) => {
-  gsap.from(right, 0.5, {
+export const animationRight = (right, start) => {
+  gsap.from(right, {
     x: 50,
     autoAlpha: 0,
     scrollTrigger: {
-      trigger: right,
+      trigger: start,
       start: 'top top',
       end: '+=100%',
     },
@@ -36,7 +36,6 @@ export const animationBot = container => {
     autoAlpha: 0,
     scrollTrigger: {
       trigger: container,
-      markers: true,
       start: 'top top',
       end: '+=100%',
     },
@@ -45,4 +44,35 @@ export const animationBot = container => {
 
 export const animationScroll = element => {
   gsap.to(window, { duration: 2, scrollTo: '#' + element, ease: 'power2' });
+};
+
+export const animationCarousel = (element, direction) => {
+  gsap.from(element, {
+    duration: 1,
+    x: direction == 'left' ? 50 : -50,
+    autoAlpha: 0,
+    ease: 'power1',
+  });
+};
+
+export const animationNumbers = (
+  element,
+  start,
+  end,
+  increment,
+  duration,
+  plus,
+) => {
+  if (start === end) return;
+  const range = end - start;
+  let current = start;
+  // const increment = end > start ? 1 : -1;
+  const stepTime = Math.abs(Math.floor(duration / range));
+  const timer = setInterval(function () {
+    current += increment;
+    element.innerHTML = current + plus;
+    if (current == end) {
+      clearInterval(timer);
+    }
+  }, stepTime);
 };

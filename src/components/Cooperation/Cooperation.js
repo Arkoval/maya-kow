@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Powder from '../../images/powder.inline.svg';
 import { Link, useStaticQuery } from 'gatsby';
+import { animationLeft, animationRight } from '../../utils/Animations';
 
 const StyledSection = styled.section`
   min-height: 110vh;
@@ -150,9 +151,6 @@ const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.colors.dark};
 `;
 const Cooperation = () => {
-  const left = useRef(null);
-  const right = useRef(null);
-  const containter = useRef(null);
   const [isOpen, setIsOpen] = useState({
     individual: false,
     group: false,
@@ -167,17 +165,16 @@ const Cooperation = () => {
     setIsOpen({ ...isOpen, [e.target.name]: false });
   };
 
-  useEffect(() => {
-    console.log(isOpen);
-  }, [isOpen]);
-
   return (
     <>
       <StyledSection id={'oferta'}>
         <StyledBackgroundHeading>oferta</StyledBackgroundHeading>
         <StyledWrapper>
           <StyledCard>
-            <StyledImage src={require('../../images/cooperation_1.jpg')} />
+            <StyledImage
+              src={require('../../images/cooperation_1.jpg')}
+              alt={'kwitnący kwiat'}
+            />
             <StyledHeading>
               mentoring
               <br />
@@ -219,7 +216,10 @@ const Cooperation = () => {
             </StyledHiddenBox>
           </StyledCard>
           <StyledCard>
-            <StyledImage src={require('../../images/cooperation_2.jpg')} />
+            <StyledImage
+              src={require('../../images/cooperation_2.jpg')}
+              alt={'pędy bambusa'}
+            />
             <StyledHeading>grupowe programy mentorignowe</StyledHeading>
             <StyledButton onClick={handleOpen} name={'group'}>
               czytaj dalej...
@@ -261,7 +261,10 @@ const Cooperation = () => {
             </StyledHiddenBox>
           </StyledCard>
           <StyledCard>
-            <StyledImage src={require('../../images/cooperation_3.jpg')} />
+            <StyledImage
+              src={require('../../images/cooperation_3.jpg')}
+              alt={'kora drzewa'}
+            />
             <StyledHeading>
               wyjazdy
               <br /> rozwojowe
@@ -300,7 +303,10 @@ const Cooperation = () => {
             </StyledHiddenBox>
           </StyledCard>
           <StyledCard>
-            <StyledImage src={require('../../images/cooperation_4.jpg')} />
+            <StyledImage
+              src={require('../../images/cooperation_4.jpg')}
+              alt={'omszały kamień'}
+            />
             <StyledHeading>
               kursy
               <br /> online

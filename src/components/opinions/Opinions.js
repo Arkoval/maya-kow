@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import HTMLRenderer from 'react-html-renderer';
 import { useStaticQuery, graphql } from 'gatsby';
 import Quote from '../../images/quote.inline.svg';
+import { animationCarousel } from '../../utils/Animations';
 
 const StyledSection = styled.section`
   position: relative;
@@ -75,7 +76,6 @@ const StyledSvg = styled(Quote)`
 `;
 
 const StyledButton = styled.button`
-  /* height: 100%; */
   width: 10%;
   font-family: ${({ theme }) => theme.fonts.heading};
   background-color: transparent;
@@ -96,20 +96,28 @@ const StyledButton = styled.button`
 `;
 
 const Opinions = () => {
+  let element = useRef(null);
+  let [direction, setDirection] = useState('');
   const { allPrismicOpinions } = useStaticQuery(query);
   const opinions = allPrismicOpinions.nodes;
   const [index, setIndex] = useState(0);
 
   const handleNext = () => {
     index < opinionList.length - 1 ? setIndex(index + 1) : setIndex(0);
+    setDirection('right');
   };
   const handlePrev = () => {
     index <= 0 ? setIndex(opinionList.length - 1) : setIndex(index - 1);
+    setDirection('left');
   };
+
+  useEffect(() => {
+    animationCarousel(element, direction);
+  });
 
   const opinionList = opinions.map((opinion, id) => {
     return (
-      <StyledCard key={id}>
+      <StyledCard ref={e => (element = e)} key={id}>
         <StyledParagraphContainer>
           <HTMLRenderer
             html={opinion.data.text.html}

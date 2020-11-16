@@ -47,8 +47,13 @@ const StyledLink = styled.button`
   color: ${({ theme }) => theme.colors.light};
   font-size: 1rem;
   font-weight: 200;
+  transition: 0.2s;
   ${({ theme }) => theme.media.lg} {
     font-size: 1.5rem;
+  }
+  &:hover {
+    transform: scale(1.15);
+    color: ${({ theme }) => theme.colors.green};
   }
 `;
 const StyledLogo = styled(Logo)`

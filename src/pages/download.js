@@ -61,7 +61,10 @@ const Download = () => {
   return (
     <CoffeeTemplate color={theme.colors.blue}>
       <StyledWrapper>
-        <StyledImg src={require('../images/ebook.jpeg')} />
+        <StyledImg
+          src={require('../images/ebook.jpeg')}
+          alt={'okładka ebooka'}
+        />
         <StyledDiv>
           <StyledParagraph>
             Stawiasz sobie poprzeczkę na wysokości praktycznie niemożliwej

@@ -9,10 +9,12 @@ import Cooperation from '../components/Cooperation/Cooperation';
 import ForCoffee from '../components/ForCoffee/ForCoffee';
 import Contact from '../components/Contact/Contact';
 import Opinions from '../components/opinions/Opinions';
+import { Helmet } from 'react-helmet';
 
 const IndexPage = () => (
   <MainTemplate>
     <SEO title="Home" />
+    <Helmet></Helmet>
     <Hero />
     <AboutMain />
     <Numbers />

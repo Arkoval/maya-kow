@@ -1,4 +1,3 @@
-// import { Link } from 'gatsby';
 import React, { useLayoutEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { routes } from '../../routes/routes';
