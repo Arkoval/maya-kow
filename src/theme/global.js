@@ -53,8 +53,7 @@ export const GlobalStyle = createGlobalStyle`
     // RESET CSS=================================
 
      body {
-        font-family: 'Montserrat';
-        font-size: 16px;
+        font-family: 'Mulish', sans-serif;
         color: #232323;
         line-height: 1.2;
         font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));

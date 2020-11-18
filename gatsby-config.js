@@ -36,27 +36,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Rozha One`,
-            subsets: [`latin-ext`],
-          },
-          {
-            family: `Mulish`,
-            subsets: [`latin-ext`],
-            variants: [`300`, `400`],
-          },
-          {
-            family: `Montserrat`,
-            subsets: [`latin-ext`],
-            variants: [`100`, `200`, '300', '400'],
-          },
-        ],
-      },
-    },
-    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
