@@ -19,14 +19,8 @@ const StyledBackgroundHeading = styled.h1`
   font-size: 32vw;
   line-height: 0.9;
   text-align: center;
-  color: white;
   opacity: 0.3;
-  text-shadow: -1px -1px 0 #c9eb63, 1px -1px 0 #c9eb63, -1px 1px 0 #c9eb63,
-    1px 1px 0 #c9eb63;
-  ${({ theme }) => theme.media.md} {
-    text-shadow: -3px -3px 0 #c9eb63, 3px -3px 0 #c9eb63, -3px 3px 0 #c9eb63,
-      3px 3px 0 #c9eb63;
-  }
+  color: ${({ theme }) => theme.colors.green};
 `;
 const StyledWrapper = styled.div`
   ${({ theme }) => theme.mixins.flex('flex', 'row', 'center', 'space-evenly')}

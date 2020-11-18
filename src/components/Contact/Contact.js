@@ -119,8 +119,9 @@ const Contact = () => {
           <StyledInnerWrapper>
             <StyledHeading>zapisz się na coffee letters</StyledHeading>
             <StyledParagraph>
-              Zapisz się i zyskaj moje wsparcie w rozwoju Twojego przywództwa.
-              Kobiecego, autentycznego i na własnych zasadach
+              Zapisz się i zyskaj moje wsparcie w Twojej transformacji oraz w
+              rozwoju Twojego przywództwa. Kobiecego, autentycznego i na
+              własnych zasadach
             </StyledParagraph>
           </StyledInnerWrapper>
           <StyledForm onSubmit={handleSubmit}>
