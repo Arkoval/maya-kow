@@ -88,9 +88,10 @@ const StyledHeading = styled.h2`
 const StyledParagraphContainer = styled.div`
   width: 100%;
 
-  /* margin-top: 1rem; */
+  margin-top: 1rem;
   ${({ theme }) => theme.media.sm} {
     margin-left: 2rem;
+    margin-top: 0;
   }
   ${({ theme }) => theme.media.lg} {
     margin-left: 3rem;

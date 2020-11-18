@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import HTMLRenderer from 'react-html-renderer';
+import { animationCarousel } from '../../utils/Animations';
 
 const StyledSection = styled.section`
   width: 100%;
@@ -160,19 +161,26 @@ const StyledButton = styled.button`
 `;
 
 const OfferOnline = ({ courses, heading }) => {
+  let element = useRef(null);
+  let [direction, setDirection] = useState('');
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   const handleNext = () => {
     index < course.length - 1 ? setIndex(index + 1) : setIndex(0);
+    setDirection('right');
   };
   const handlePrev = () => {
     index <= 0 ? setIndex(course.length - 1) : setIndex(index - 1);
+    setDirection('left');
   };
 
   function updateSize() {
     setIsMobile(window.screen.width < 768);
   }
+  useEffect(() => {
+    animationCarousel(element, direction);
+  });
 
   useLayoutEffect(() => {
     window.addEventListener('resize', updateSize);
@@ -182,7 +190,7 @@ const OfferOnline = ({ courses, heading }) => {
 
   const course = courses.map((course, i) => {
     return (
-      <StyledCard key={i}>
+      <StyledCard ref={e => (element = e)} key={i}>
         <StyledCardWrapper>
           <StyledInnerWrapper>
             <StyledSubHeading>
