@@ -23,7 +23,7 @@ const StyledHeading = styled.h1`
   font-family: ${({ theme }) => theme.fonts.paragraf};
   margin-top: 10rem;
   font-size: 1.5rem;
-  font-weight: 100;
+  font-weight: 200;
   text-align: center;
   ${({ theme }) => theme.media.sm} {
     font-size: 3rem;

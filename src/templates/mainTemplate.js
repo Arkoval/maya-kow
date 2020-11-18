@@ -106,10 +106,6 @@ const StyledLinkBack = styled(Link)`
 const LeftTemplate = ({ data }) => {
   const post = data.prismicBlogPost;
 
-  useEffect(() => {
-    console.log(post);
-  });
-
   return (
     <CoffeeTemplate color={theme.colors.green}>
       <StyledArticle>

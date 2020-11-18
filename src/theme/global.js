@@ -53,7 +53,7 @@ export const GlobalStyle = createGlobalStyle`
     // RESET CSS=================================
 
      body {
-        font-family: 'Mulish', sans-serif;
+        font-family: 'Mulish';
         color: #232323;
         line-height: 1.2;
         font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
