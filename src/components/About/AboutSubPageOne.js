@@ -42,6 +42,7 @@ const StyledHeading = styled.h1`
   font-size: 1.2rem;
   margin-top: 1rem;
   position: relative;
+  text-align: left;
 
   &::before {
     content: '';
@@ -52,10 +53,8 @@ const StyledHeading = styled.h1`
     left: 0;
     background-color: ${({ theme }) => theme.colors.green};
     z-index: -1;
+    display: none;
 
-    ${({ theme }) => theme.media.xs} {
-      display: none;
-    }
     ${({ theme }) => theme.media.md} {
       display: inline;
       width: 60%;

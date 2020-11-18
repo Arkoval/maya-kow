@@ -5,7 +5,7 @@ import { theme } from '../theme/theme';
 
 const StyledWrapper = styled.div`
   width: 90%;
-  margin: 0 auto;
+  margin: 1rem auto;
   ${({ theme }) =>
     theme.mixins.flex('flex', 'column', 'center', 'space-evenly')};
   ${({ theme }) => theme.media.md} {
@@ -17,7 +17,7 @@ const StyledWrapper = styled.div`
 const StyledImg = styled.img`
   width: 100%;
   ${({ theme }) => theme.media.sm} {
-    width: 40%;
+    width: 35%;
   }
 `;
 const StyledDiv = styled.div`
@@ -92,10 +92,10 @@ const Download = () => {
             47&nbsp;stron żywej wiedzy i praktyk.
           </StyledSpan>{' '}
           <StyledParagraph>
-            Warunkiem jest zapis na newsletter, który nazywam coffee letters.
-            Dlatego, że marzy mi się, żebyś czytała je w zatrzymaniu, zanurzając
-            się w przyjemności i inspiracji. A dla mnie to możliwe tylko z kawą
-            :)
+            Warunkiem jego otrzymania jest zapis na newsletter, który nazywam
+            coffee letters. Dlatego, że marzy mi się, żebyś czytała je w
+            zatrzymaniu, zanurzając się w przyjemności i inspiracji. A dla mnie
+            to możliwe tylko z kawą :)
           </StyledParagraph>
           <StyledLink>Przygarniam ebook</StyledLink>
         </StyledDiv>

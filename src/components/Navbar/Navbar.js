@@ -36,7 +36,10 @@ const StyledLink = styled.button`
   border: none;
   color: ${({ theme }) => theme.colors.dark};
   font-family: ${({ theme }) => theme.fonts.paragraf};
-  font-size: 2.5rem;
+  font-size: 2rem;
+  ${({ theme }) => theme.media.sm} {
+    font-size: 2.5rem;
+  }
 
   &::before,
   &::after {

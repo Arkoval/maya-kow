@@ -57,7 +57,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 16px;
         color: #232323;
         line-height: 1.2;
-        font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 300)));
+        font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
      }
        
 `;

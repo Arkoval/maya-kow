@@ -46,7 +46,7 @@ const StyledHeading = styled.h1`
   }
 `;
 const StyledCard = styled.div`
-  width: 90%;
+  width: 95%;
   padding-top: 1rem;
   margin: 1rem auto;
   box-shadow: -5px 6px 13px 0px rgba(0, 0, 0, 0.2);
@@ -56,15 +56,23 @@ const StyledCard = styled.div`
 
   ${({ theme }) => theme.media.md} {
     padding-top: 0;
-    max-width: 60vw;
+    max-width: 70vw;
     margin: 2rem auto;
 
     ${({ theme }) =>
-      theme.mixins.flex('flex', 'row', 'flex-start', 'space-between')}
+      theme.mixins.flex('flex', 'row', 'flex-start', 'space-between')};
 
     &:nth-of-type(2n) {
       ${({ theme }) =>
-        theme.mixins.flex('flex', 'row-reverse', 'flex-start', 'space-between')}
+        theme.mixins.flex(
+          'flex',
+          'row-reverse',
+          'flex-start',
+          'space-between',
+        )};
+    }
+    ${({ theme }) => theme.media.xl} {
+      max-width: 60vw;
     }
   }
 `;

@@ -80,7 +80,7 @@ const StyledForm = styled.form`
   }
   input[type='checkbox'] {
     color: ${({ theme }) => theme.colors.green};
-    width: 5%;
+    max-width: 3%;
   }
   input[type='submit'] {
     font-family: ${({ theme }) => theme.fonts.heading};

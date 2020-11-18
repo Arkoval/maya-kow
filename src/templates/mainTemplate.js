@@ -48,11 +48,15 @@ const StyledDate = styled.p`
   font-size: 0.8rem;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.blue};
-  margin: 0.5rem auto;
+  margin: 1rem auto;
   width: 90%;
-
+  text-align: left;
   ${({ theme }) => theme.media.sm} {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    width: 80%;
+  }
+  ${({ theme }) => theme.media.lg} {
+    width: 60%;
   }
 `;
 const StyledTitle = styled.strong`
@@ -110,6 +114,9 @@ const LeftTemplate = ({ data }) => {
     <CoffeeTemplate color={theme.colors.green}>
       <StyledArticle>
         <StyledHeading>{post.data.title.text}</StyledHeading>
+        {post.data.title2 ? (
+          <StyledHeading>{post.data.title2.text}</StyledHeading>
+        ) : null}
         <StyledImg src={post.data.image.url} alt={post.data.image.alt} />
         <HTMLRenderer
           html={post.data.text.html}
@@ -145,6 +152,9 @@ export const query = graphql`
         title {
           text
           html
+        }
+        title2 {
+          text
         }
         date
         image {

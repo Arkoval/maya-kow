@@ -39,7 +39,7 @@ const StyledParagraph = styled.p`
 
   ${({ theme }) => theme.media.md} {
     width: 80%;
-    font-size: 1.2rem;
+
     padding-bottom: 3rem;
   }
 `;

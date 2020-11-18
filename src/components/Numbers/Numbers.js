@@ -1,16 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import LinkedIn from '../../images/linkedin.inline.svg';
-import {
-  animationNumbers,
-  animationNumbersStart,
-} from '../../utils/Animations';
+import { animationNumbers } from '../../utils/Animations';
 
 const StyledWrapper = styled.div`
   ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')};
   min-height: 80vh;
   width: 90%;
-  margin: 1rem auto;
+  margin: 2rem auto;
 `;
 
 const StyledTextWrapper = styled.div`
@@ -56,11 +53,7 @@ const StyledInnerWrapper = styled.div`
     theme.mixins.flex('flex', 'row', 'flex-start', 'space-evenly')};
   flex-wrap: wrap;
 `;
-const StyledParagraph = styled.p`
-  ${({ theme }) => theme.media.md} {
-    font-size: 1.2rem;
-  }
-`;
+const StyledParagraph = styled.p``;
 const StyledSpan = styled.span`
   margin-top: 1rem;
   display: flex;
@@ -72,7 +65,6 @@ const StyledSpan = styled.span`
   ${({ theme }) => theme.media.md} {
     border: none;
     padding: 0;
-    font-size: 1.2rem;
     align-self: flex-end;
     width: 30%;
   }

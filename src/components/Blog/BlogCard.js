@@ -3,21 +3,23 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 const StyledImg = styled.img`
-  width: 100%;
   height: 100%;
+  width: 100%;
   object-fit: cover;
 `;
 const StyledWrapper = styled.div`
   width: 100%;
-  height: 23rem;
+  height: 25rem;
   box-shadow: -5px 6px 13px 0px rgba(0, 0, 0, 0.2);
   background-color: ${({ theme }) => theme.colors.light};
   margin: 1rem auto;
   position: relative;
 
   ${({ theme }) => theme.media.sm} {
-    width: 26.5rem;
-    height: 23rem;
+    width: 45%;
+  }
+  ${({ theme }) => theme.media.xxl} {
+    width: 30%;
   }
 `;
 const StyledHeadingContainer = styled.div`
@@ -45,7 +47,7 @@ const BlogCard = ({ img, title, title2, link }) => {
   return (
     <StyledWrapper>
       <Link to={link}>
-        <StyledImg src={img}></StyledImg>
+        <StyledImg src={img} />
         <StyledHeadingContainer>
           <StyledHeading>{title}</StyledHeading>
           {title2 ? <StyledHeading>{title2}</StyledHeading> : null}

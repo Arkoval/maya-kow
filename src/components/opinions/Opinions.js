@@ -65,12 +65,17 @@ const StyledHeading = styled.h1`
 `;
 const StyledSvg = styled(Quote)`
   fill: ${({ theme }) => theme.colors.green};
-  height: 4rem;
-  width: 4rem;
+  height: 3.5rem;
+  width: 3.5rem;
   position: absolute;
   top: 0;
-  right: 5%;
+  right: 3%;
   ${({ theme }) => theme.media.md} {
+    left: 3%;
+    height: 4rem;
+    width: 4rem;
+  }
+  ${({ theme }) => theme.media.lg} {
     left: 5%;
   }
 `;

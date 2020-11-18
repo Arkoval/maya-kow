@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Powder from '../../images/powder.inline.svg';
-import { Link, useStaticQuery } from 'gatsby';
-import { animationLeft, animationRight } from '../../utils/Animations';
+import { Link } from 'gatsby';
 
 const StyledSection = styled.section`
   min-height: 110vh;
@@ -13,7 +12,6 @@ const StyledSection = styled.section`
 
   ${({ theme }) => theme.media.sm} {
     padding-bottom: 5rem;
-    /* margin-bottom: -5rem; */
   }
 `;
 const StyledBackgroundHeading = styled.h1`
@@ -167,9 +165,9 @@ const Cooperation = () => {
 
   return (
     <>
-      <StyledSection id={'oferta'}>
+      <StyledSection>
         <StyledBackgroundHeading>oferta</StyledBackgroundHeading>
-        <StyledWrapper>
+        <StyledWrapper id={'oferta'}>
           <StyledCard>
             <StyledImage
               src={require('../../images/cooperation_1.jpg')}
@@ -229,9 +227,10 @@ const Cooperation = () => {
                 &#10005;
               </StyledCloseButton>
               <StyledParagraph>
-                Pracujesz w grupie oraz w systemie „buddy” (rekomendowane).
-                Czyli pracujesz przez cały okres programu z drugą kobietą:
-                otrzymując i dając sobie wzajemne wsparcie.
+                Pracujesz w grupie oraz w systemie „buddy”, co z serca
+                rekomenduję. Czyli pracujesz przez cały okres programu z drugą
+                kobietą, o podobnych potrebach: otrzymując i dając sobie
+                wzajemine wsparciem.
               </StyledParagraph>
               <StyledParagraph>
                 {' '}
@@ -247,10 +246,9 @@ const Cooperation = () => {
               </StyledParagraph>
               <StyledParagraph>
                 {' '}
-                Kupując udział w programie otrzymujesz: udział w zamkniętej
-                grupie na FB, otwierający warsztat online (z wykorzystaniem
-                platformy zoom), sesję pytań i odpowiedzi online (Q&A) (zoom)
-                zamykający warsztat online (zoom){' '}
+                Kupując udział w programie otrzymujesz dostęp do filmów,
+                transktypcje opracowane w formie podręcznika, manuale z
+                praktycznymi zadaniami.{' '}
               </StyledParagraph>
               <StyledParagraph>
                 {' '}
@@ -285,8 +283,8 @@ const Cooperation = () => {
               <StyledParagraph>
                 {' '}
                 Odpowiadam za treść merytoryczną, materiały, facylitację procesu
-                [tutaj więcej o facylitacji]. Jestem z Tobą i grupą przez cały
-                czas wyjazdu.
+                [tutaj przeczytasz więcej o facylitacji]. Jestem z Tobą i grupą
+                przez cały czas wyjazdu.
               </StyledParagraph>
               <StyledParagraph>
                 {' '}
