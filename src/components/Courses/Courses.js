@@ -106,6 +106,7 @@ const StyledSubHeading = styled.h2`
     font-size: 2rem;
   }
 `;
+const StyledList = styled.ul``;
 const StyledParagraph = styled.p`
   margin: 0.5rem 0;
 `;
@@ -198,6 +199,7 @@ const OfferOnline = ({ courses, heading }) => {
               components={{
                 strong: props => <StyledStrong {...props} />,
                 p: props => <StyledParagraph {...props} />,
+                ul: props => <StyledList {...props} />,
               }}
             />
           </StyledInnerWrapper>

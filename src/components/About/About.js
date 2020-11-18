@@ -169,8 +169,8 @@ const AboutMain = () => {
           </StyledParagraph>
           <StyledParagraph>
             {' '}
-            Tą zasada jest mi bardzo bliska – zarówno w pracy, jak i życiu
-            prywatnym. To podejście, które rozluźnia ludzi i zmienia świat
+            Tą zasada jest mi bardzo bliska – stosuję ją zarówno w pracy, jak i
+            życiu prywatnym. To podejście, które rozluźnia ludzi i zmienia świat
           </StyledParagraph>
           <StyledSpan>Przez ostatnie 15 lat zarządzałam zespołami.</StyledSpan>
           <StyledParagraph>

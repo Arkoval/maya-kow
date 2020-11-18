@@ -46,7 +46,6 @@ const StyledHeading = styled.h1`
 
 const StyledDate = styled.p`
   font-size: 0.8rem;
-  font-weight: 600;
   color: ${({ theme }) => theme.colors.blue};
   margin: 1rem auto;
   width: 90%;
