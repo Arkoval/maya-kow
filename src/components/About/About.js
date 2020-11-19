@@ -47,7 +47,7 @@ const StyledImageWrapper = styled.div`
   overflow: hidden;
 `;
 const StyledTextWrapper = styled.div`
-  text-align: justify;
+  text-align: left;
   width: 90%;
   margin-top: 1rem;
   ${({ theme }) =>
@@ -58,13 +58,15 @@ const StyledTextWrapper = styled.div`
 `;
 const StyledHeading = styled.h1`
   font-family: ${({ theme }) => theme.fonts.paragraf};
-  font-weight: 600;
+  font-weight: 700;
+  margin: 0.5rem 0;
 `;
 
-const StyledSpan = styled.span`
+const StyledSubHeading = styled.h2`
   position: relative;
+  margin: 0.5rem 0;
   display: block;
-  font-weight: 600;
+  font-weight: 700;
 
   &::before {
     content: '';
@@ -77,14 +79,16 @@ const StyledSpan = styled.span`
     z-index: -1;
 
     ${({ theme }) => theme.media.lg} {
-      width: 30%;
+      width: 60%;
     }
   }
 `;
 const StyledParagraph = styled.p`
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 `;
-
+const StyledStrong = styled.strong`
+  font-weight: 700;
+`;
 const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.colors.dark};
   text-decoration: none;
@@ -147,32 +151,47 @@ const AboutMain = () => {
           <StyledParagraph>
             W jednej z ważniejszych dla mnie książek Sztuka możliwości, autorzy
             – Rosamunde i Ben Zander, opisują taką historię:
-            <br /> Dwóch premierów siedzi w gabinecie, omawiając sprawy stanu.
-            Nagle do środka wpada mężczyzna, blady z wściekłości, krzycząc,
-            tupiąc i waląc pięścią w biurko. Gospodarz mówi: Peter, przypominam
-            Ci o regule nr 6. Peter natychmiast uspokaja się, przeprasza i
+          </StyledParagraph>
+          <StyledParagraph>
+            {' '}
+            Dwóch premierów siedzi w gabinecie, omawiając sprawy stanu. Nagle do
+            środka wpada mężczyzna, blady z wściekłości, krzycząc, tupiąc i
+            waląc pięścią w biurko. Gospodarz mówi: Peter, przypominam Ci o
+            regule nr 6. Peter&nbsp;natychmiast się uspokaja, przeprasza i
             wycofuje.
-            <br /> Politycy wracają do ich rozmowy, która znów zostaje przerwana
-            dwadzieścia minut później przez rozhisteryzowaną kobietę, dziko
-            gestykulującą, z rozwianymi w emocjach włosami. Ponownie minister
-            zwraca się do kobiety słowami: Marie, proszę pamiętaj: zasada numer
-            6. I ponownie całkowity spokój zstępuje na kobietę i ona też
-            wycofuje się z ukłonem i przeprosinami. Gdy scena powtarza się po
-            raz trzeci, gość zwraca się do swojego kolegi: Mój drogi
-            przyjacielu. Widziałem wiele rzeczy w życiu, ale nigdy nic tak
+            <br />
+            Politycy wracają do ich rozmowy, która po chwili znów zostaje
+            przerwana przez rozhisteryzowaną kobietę, dziko gestykulującą w
+            emocjach. Minister zwraca się do kobiety: Marie, pamiętaj: zasada
+            numer 6.
+            <br /> Ponownie całkowity spokój zstępuje na kobietę.
+          </StyledParagraph>
+          <StyledParagraph>
+            {' '}
+            Gdy scena powtarza się po raz trzeci, gość zwraca się do kolegi: Mój
+            drogi przyjacielu. Widziałem wiele rzeczy w życiu, ale nigdy nic tak
             niezwykłego jak to. Mógłbyś podzielić się ze mną tajemnicą zasady
             numer 6?
-            <br /> To bardzo proste - odpowiada gospodarz - zasada numer 6
-            brzmi: Nie traktuj siebie tak cholernie poważnie. Ach - mówi gość -
-            rozumiem. A po chwili namysłu pyta: a jakie, jeśli mogę zapytać, są
+          </StyledParagraph>
+          <StyledParagraph>
+            {' '}
+            To bardzo proste - odpowiada gospodarz - zasada numer 6 brzmi:
+            <StyledStrong>
+              {' '}
+              Nie traktuj siebie tak cholernie poważnie.{' '}
+            </StyledStrong>{' '}
+            Ach - mówi gość - rozumiem. A po chwili namysłu pyta: a jakie są
             inne zasady? Nie ma innych - pada odpowiedź.
           </StyledParagraph>
           <StyledParagraph>
             {' '}
-            Tą zasada jest mi bardzo bliska – stosuję ją zarówno w pracy, jak i
-            życiu prywatnym. To podejście, które rozluźnia ludzi i zmienia świat
+            Tą zasada jest mi bardzo bliska: żyję nią - zarówno w pracy, jak i w
+            życiu prywatnym. To podejście, które rozluźnia ludzi i zmienia
+            świat.
           </StyledParagraph>
-          <StyledSpan>Przez ostatnie 15 lat zarządzałam zespołami.</StyledSpan>
+          <StyledSubHeading>
+            Przez ostatnie 15 lat zarządzałam zespołami.
+          </StyledSubHeading>
           <StyledParagraph>
             Formalnie przewodziłam wielopoziomowym strukturom HR w
             międzynarodowych korporacjach. W praktyce budowałam uskrzydlone

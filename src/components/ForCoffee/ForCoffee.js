@@ -95,7 +95,7 @@ const ForCoffee = () => {
           </StyledParagraph>
           <StyledLinksWrapper>
             <StyledLink to="/blog">blog</StyledLink>
-            <StyledLink to="/download">do pobrania</StyledLink>
+            <StyledLink to="/download">prezent</StyledLink>
           </StyledLinksWrapper>
         </StyledWrapper>
       </StyledSection>

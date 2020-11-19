@@ -31,7 +31,7 @@ const StyledImage = styled.img`
   }
 `;
 const StyledTextWrapper = styled.div`
-  text-align: justify;
+  text-align: left;
   width: 100%;
   ${({ theme }) => theme.media.sm} {
     width: 80%;
@@ -59,7 +59,7 @@ const StyledHeading = styled.h1`
       display: inline;
       width: 60%;
       height: 1rem;
-      top: 30%;
+      top: 50%;
     }
   }
 
@@ -108,10 +108,12 @@ const AboutSubPageOne = () => {
             <StyledParagraph>
               {' '}
               Najbardziej naturalnie przychodzi mi podważanie tego, co oczywiste
-              i nawykowe. Oglądałaś Spidermana? On miał pajęczy zmysł
-              odczytujący niebezpieczeństwo, ja mam pajęczy zmysł reagujący na
-              „prawdy oczywiste”. Zwłaszcza te, które paraliżują i tłumią
-              potencjał ludzi.
+              i nawykowe. A w następnym kroku jego transformacja.
+              <br />
+              Oglądałaś Spidermana? On miał pajęczy zmysł odczytujący
+              niebezpieczeństwo, ja mam pajęczy zmysł reagujący na „prawdy
+              oczywiste”. Zwłaszcza te, które paraliżują i tłumią potencjał
+              ludzi.
             </StyledParagraph>
           </StyledTextWrapper>
         </StyledWrapper>

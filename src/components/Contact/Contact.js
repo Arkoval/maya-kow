@@ -53,64 +53,13 @@ const StyledHeading = styled.h1`
 `;
 
 const StyledParagraph = styled.p`
-  /* text-align: justify; */
+  margin: 1rem 0;
 `;
-const StyledCheckboxWrapper = styled.span`
-  margin-top: 1rem;
-  display: flex;
+const StyledLink = styled(Link)`
+  color: ${({ theme }) => theme.colors.dark};
 `;
-const StyledForm = styled.form`
-  ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')}
-  width: 100%;
-  ${({ theme }) => theme.media.sm} {
-    width: 50%;
-  }
 
-  label {
-    font-size: 0.7rem;
-    width: 100%;
-    margin-left: 0.5rem;
-  }
-  input {
-    border: none;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.green};
-    background: transparent;
-    padding: 1rem;
-    width: 100%;
-  }
-  input[type='checkbox'] {
-    color: ${({ theme }) => theme.colors.green};
-    max-width: 3%;
-  }
-  input[type='submit'] {
-    font-family: ${({ theme }) => theme.fonts.heading};
-    color: ${({ theme }) => theme.colors.green};
-    border: none;
-    font-size: 0.8rem;
-    width: auto;
-    align-self: flex-end;
-    padding: 0;
-    margin-top: 0.5rem;
-    cursor: pointer;
-    ${({ theme }) => theme.media.md} {
-      font-size: 2rem;
-    }
-  }
-`;
 const Contact = () => {
-  let [form, setForm] = useState({
-    name: '',
-    email: '',
-  });
-
-  const handleForm = e => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(form);
-  };
-
   return (
     <>
       <StyledSection id={'kontakt'}>
@@ -121,10 +70,16 @@ const Contact = () => {
             <StyledParagraph>
               Zapisz się i zyskaj moje wsparcie w Twojej transformacji oraz w
               rozwoju Twojego przywództwa. Kobiecego, autentycznego i na
-              własnych zasadach
+              własnych zasadach.
+            </StyledParagraph>
+            <StyledParagraph>
+              Zaproznaj się z{' '}
+              <StyledLink to="/polityka-prywatnosci">
+                polityką-prywatności
+              </StyledLink>{' '}
             </StyledParagraph>
           </StyledInnerWrapper>
-          <StyledForm onSubmit={handleSubmit}>
+          {/* <StyledForm onSubmit={handleSubmit}>
             <label htmlFor="name">
               <input
                 type="text"
@@ -154,7 +109,12 @@ const Contact = () => {
               </label>
             </StyledCheckboxWrapper>
             <input type="submit" value="wyślij" />
-          </StyledForm>
+          </StyledForm> */}
+          <div
+            className="ml-form-embed"
+            data-account="2472946:k9f7u2i6y0"
+            data-form="3027509:t9e5t3"
+          ></div>
         </StyledWrapper>
       </StyledSection>
     </>

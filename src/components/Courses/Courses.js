@@ -7,12 +7,10 @@ import { animationCarousel } from '../../utils/Animations';
 const StyledSection = styled.section`
   width: 100%;
   margin: 0 auto;
-  ${({ theme }) =>
-    theme.mixins.flex('flex', 'column', 'center', 'space-between')}
+  ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')}
   position: relative;
   ${({ theme }) => theme.media.md} {
     min-height: 80vh;
-    flex-direction: row;
     width: 90%;
   }
   ${({ theme }) => theme.media.xl} {
@@ -27,27 +25,16 @@ const StyledWrapper = styled.div`
   }
 `;
 const StyledHeading = styled.h1`
-  font-size: 2.5rem;
-  opacity: 0.3;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
   color: ${({ theme }) => theme.colors.dark};
-  font-family: ${({ theme }) => theme.fonts.heading};
-
+  font-family: ${({ theme }) => theme.fonts.paragraf};
   ${({ theme }) => theme.media.sm} {
-    font-size: 4rem;
-  }
-  ${({ theme }) => theme.media.md} {
-    font-size: 4rem;
-    line-height: 0.8;
-    transform: rotate(180deg);
-    writing-mode: vertical-lr;
-    margin-right: 2rem;
-  }
-  ${({ theme }) => theme.media.xxl} {
-    font-size: 5rem;
+    font-size: 1.5rem;
   }
 `;
 const StyledCard = styled.div`
-  width: 95%;
+  width: 100%;
   padding-top: 1rem;
   margin: 1rem auto;
   box-shadow: -5px 6px 13px 0px rgba(0, 0, 0, 0.2);
@@ -112,15 +99,12 @@ const StyledParagraph = styled.p`
   margin: 0.5rem 0;
 `;
 const StyledStrong = styled.strong`
-  margin: 0.5rem 0;
   font-weight: 600;
 `;
 const StyledPlace = styled.h3`
   margin-top: 1rem;
-  font-weight: 600;
 `;
 const StyledDate = styled.h3`
-  font-weight: 600;
   margin-bottom: 2rem;
   margin-top: 0.5rem;
 `;
@@ -160,7 +144,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const OfferOnline = ({ courses, heading }) => {
+const OfferOnline = ({ courses }) => {
   let element = useRef(null);
   let [direction, setDirection] = useState('');
   const [index, setIndex] = useState(0);
@@ -193,15 +177,16 @@ const OfferOnline = ({ courses, heading }) => {
       <StyledCard ref={e => (element = e)} key={i}>
         <StyledCardWrapper>
           <StyledInnerWrapper>
-            <StyledSubHeading>
-              {course.data.title.text}
-              <br />
-              {course.data.subtitle.text}
-            </StyledSubHeading>
+            <StyledHeading>{course.data.title.text}</StyledHeading>
+            <StyledSubHeading>{course.data.subtitle.text}</StyledSubHeading>
             {course.data.place && (
-              <StyledPlace>Miejsce: {course.data.place}</StyledPlace>
+              <StyledPlace>
+                miejsce: <StyledStrong>{course.data.place}</StyledStrong>{' '}
+              </StyledPlace>
             )}
-            <StyledDate>Start: {course.data.date}</StyledDate>
+            <StyledDate>
+              początek: <StyledStrong>{course.data.date}</StyledStrong>{' '}
+            </StyledDate>
             <HTMLRenderer
               html={course.data.text.html}
               components={{
@@ -220,7 +205,6 @@ const OfferOnline = ({ courses, heading }) => {
 
   return (
     <StyledSection>
-      <StyledHeading>{heading}</StyledHeading>
       <StyledWrapper>
         <StyledButton onClick={handlePrev}>&#60;</StyledButton>
         {isMobile ? course : course[index]}

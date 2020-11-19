@@ -61,27 +61,34 @@ const StyledHiddenBox = styled.div`
   overflow: hidden;
 `;
 const StyledParagraph = styled.p`
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   margin: 0.5rem 1rem;
   ${({ theme }) => theme.media.xl} {
     margin: 0.5rem 2rem;
-    font-size: 0.9rem;
-  }
-
-  strong {
-    font-weight: 600;
+    font-size: 1rem;
   }
 `;
 const StyledSpan = styled.span`
   text-align: center;
   font-size: 1.1rem;
   position: absolute;
-  top: 70%;
+  bottom: 5%;
   left: 50%;
   width: 90%;
   transform: translate(-50%, -50%);
-  strong {
-    font-weight: 600;
+`;
+const StyledStrong = styled.strong`
+  font-weight: 700;
+`;
+const StyledList = styled.ul`
+  font-size: 0.8rem;
+  margin: 0 1rem;
+  text-indent: -10px;
+  padding-left: 0.8rem;
+
+  ${({ theme }) => theme.media.xl} {
+    margin: 0.5rem 2rem;
+    font-size: 1rem;
   }
 `;
 const StyledImage = styled.img`
@@ -140,8 +147,9 @@ const StyledLink = styled(Link)`
   font-family: ${({ theme }) => theme.fonts.heading};
   cursor: pointer;
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.dark};
+  color: ${({ theme }) => theme.colors.red};
 `;
+const StyledWebLink = styled.a``;
 const Cooperation = () => {
   const [isOpen, setIsOpen] = useState({
     individual: false,
@@ -180,8 +188,11 @@ const Cooperation = () => {
                 &#10005;
               </StyledCloseButton>
               <StyledParagraph>
-                Pracujesz ze mną w procesie indywidualnym nad Twoimi celami.
-                <br />
+                <StyledStrong>
+                  Pracujesz ze mną w procesie indywidualnym nad Twoimi celami.
+                </StyledStrong>
+              </StyledParagraph>
+              <StyledParagraph>
                 Tworzymy bezpieczną, wspierającą przestrzeń. Taką, która sprzyja
                 Twojej wewnętrznej transformacji, sięganiu poza horyzont i
                 skutecznemu działaniu.
@@ -197,13 +208,13 @@ const Cooperation = () => {
               <StyledParagraph>
                 {' '}
                 W ramach programów mentoringowych pojawia się możliwość
-                wykupienia programu plus dodatkowych sesji mentoringowych
-                zapewniających dodatkowe wsparcie w procesie, w atrakcyjnych
+                wykupienia programu wraz z sesjami mentoringowymi,
+                zapewniającymi dodatkowe wsparcie w procesie, w atrakcyjnych
                 cenach.
               </StyledParagraph>
               <StyledSpan>
                 zapytaj o szczegóły <br />{' '}
-                <strong>hello@magdalena-kowalska.pl</strong>
+                <StyledStrong>hello@magdalena-kowalska.pl</StyledStrong>
               </StyledSpan>
             </StyledHiddenBox>
           </StyledCard>
@@ -221,34 +232,36 @@ const Cooperation = () => {
                 &#10005;
               </StyledCloseButton>
               <StyledParagraph>
-                Pracujesz w grupie oraz w systemie „buddy”, co z serca
-                rekomenduję. Czyli pracujesz przez cały okres programu z drugą
-                kobietą, o podobnych potrebach: otrzymując i dając sobie
-                wzajemine wsparciem.
+                Jesteś częścią wspierającej grupy, jednocześnie pracując przez
+                cały okres programu z drugą kobietą. Kobietą, która wchodzi do
+                programu z podobnymi potrzebami i celami do Twoich. Daje to
+                wyjątkowe doświadczenie wsparcia, bliskości i inspiracji,
+                podnosząc skuteczność pracy.
               </StyledParagraph>
               <StyledParagraph>
                 {' '}
                 Ja odpowiadam za treść, proces i materiały stworzone tak, by
-                maksymalnie pomóc Ci w Twojej wewnętrznej zmianie. Po Twojej
-                stronie jest zaangażowanie w proces, nauka i realizacja Twoich
-                celów.
+                maksymalnie pomóc Ci w Twojej wewnętrznej zmianie. Jestem obecna
+                i aktywna w całym programie.
               </StyledParagraph>
               <StyledParagraph>
-                Jestem obecna i aktywna w całym programie: poprzez zamkniętą
-                grupę na FB, sesje Q&A, warsztaty online, indywidualne sesji
-                mentoringowe (w zależności od wykupionej opcji){' '}
+                Kupując udział w programie otrzymujesz:
               </StyledParagraph>
-              <StyledParagraph>
-                {' '}
-                Kupując udział w programie otrzymujesz dostęp do filmów,
-                transktypcje opracowane w formie podręcznika, manuale z
-                praktycznymi zadaniami.{' '}
-              </StyledParagraph>
-              <StyledParagraph>
-                {' '}
-                Cena programu uzależniona jest od tematu, ilości materiałów oraz
-                czasu trwania.
-              </StyledParagraph>
+              <StyledList>
+                <li>- filmy, </li>
+                <li>- transkrypcje filmów opracowane w formie podręcznika,</li>
+                <li>
+                  - manual z zadaniami, tak dobranymi, by zmaksymalizować
+                  efektywność programu
+                </li>
+                <li>- udział w zamkniętej grupie na FB</li>
+                <li>
+                  - otwierający/zamykający warsztat online (z wykorzystaniem
+                  platformy zoom)
+                </li>
+                <li>- zaprojektowaną pracę z drugą kobietą</li>
+                <li>- sesje pytań i odpowiedzi online (Q&A) (zoom)</li>
+              </StyledList>
               <StyledLink to={'/oferta-online'}>sprawdź ofertę</StyledLink>
             </StyledHiddenBox>
           </StyledCard>
@@ -270,27 +283,39 @@ const Cooperation = () => {
               </StyledCloseButton>
               <StyledParagraph>
                 Pracujemy razem w grupie na wyjazdowym warsztacie.
-                <br />
+              </StyledParagraph>
+              <StyledParagraph>
                 Pośród natury, w ciszy i odosobnieniu. W Polce oraz wyjątkowych
-                miejscach poza naszymi granicami.{' '}
+                miejscach za granicą.{' '}
               </StyledParagraph>
               <StyledParagraph>
                 {' '}
-                Odpowiadam za treść merytoryczną, materiały, facylitację procesu
-                [tutaj przeczytasz więcej o facylitacji]. Jestem z Tobą i grupą
-                przez cały czas wyjazdu.
+                Odpowiadam za treść merytoryczną, materiały, facylitację
+                procesu.
+                <StyledWebLink
+                  href={
+                    'http://www.magdalena-kowalska.pl/blog/dlaczego-uwielbiam-facylitacje'
+                  }
+                >
+                  [więcej o facylitacji]
+                </StyledWebLink>{' '}
+                Jestem z Tobą i grupą przez cały czas wyjazdu.
               </StyledParagraph>
               <StyledParagraph>
                 {' '}
-                Otrzymujesz także: udział w zamkniętej grupie na FB z moją
-                aktywną obecnością oraz wsparciem, otwierający warsztat online
-                (z wykorzystaniem platformy zoom).{' '}
+                Kupując udział w warsztacie otrzymujesz:
               </StyledParagraph>
-              <StyledParagraph>
-                Cena wydarzenia uzależniona jest od czasu jego trwania,
-                materiałów oraz ilości zaplanowanych wydarzeń online. <br />
-                Dodatkowy koszt stanowi cena akomodacji oraz wyżywienia.
-              </StyledParagraph>
+              <StyledList>
+                <li>
+                  - udział w zamkniętej grupie na FB z moim aktywną obecnością
+                  oraz wsparciem
+                </li>
+                <li>
+                  - otwierający/zamykający warsztat online (z wykorzystaniem
+                  platformy zoom)
+                </li>
+                <li>- pracę warsztatową</li>
+              </StyledList>
               <StyledLink to={'/oferta-wyjazdowa'}>sprawdź ofertę</StyledLink>
             </StyledHiddenBox>
           </StyledCard>
@@ -317,15 +342,15 @@ const Cooperation = () => {
                 {' '}
                 Pracujesz sama, we własnym tempie, przy swoim komputerze.
               </StyledParagraph>
-              <StyledParagraph>
-                Kupując kurs, otrzymujesz: filmy, transkrypcje filmów opracowane
-                w formie podręcznika, manual z zadaniami, tak dobranymi, by
-                zmaksymalizować efektywność programu.{' '}
-              </StyledParagraph>
-              <StyledParagraph>
-                {' '}
-                Cena kursu uzależniona jest od ilości materiałów.
-              </StyledParagraph>
+              <StyledParagraph> Kupując kurs, otrzymujesz:</StyledParagraph>
+              <StyledList>
+                <li>- filmy</li>
+                <li>- transkrypcje filmów opracowane w formie podręcznika</li>
+                <li>
+                  - manual z zadaniami, tak dobranymi, by zmaksymalizować
+                  efektywność programu
+                </li>
+              </StyledList>
               <StyledLink to={'/oferta-online'}>sprawdź ofertę</StyledLink>
             </StyledHiddenBox>
           </StyledCard>

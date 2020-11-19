@@ -5,7 +5,6 @@ import { animationNumbers } from '../../utils/Animations';
 
 const StyledWrapper = styled.div`
   ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')};
-  min-height: 80vh;
   width: 90%;
   margin: 2rem auto;
 `;
@@ -19,6 +18,35 @@ const StyledTextWrapper = styled.div`
     width: 20%;
   }
 `;
+const StyledHeader = styled.h1`
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: 1.2rem;
+  margin: 2rem 0;
+  position: relative;
+
+  ${({ theme }) => theme.media.lg} {
+    font-size: 2rem;
+  }
+
+  &::before {
+    content: '';
+    height: 0.8rem;
+    width: 20%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background-color: ${({ theme }) => theme.colors.green};
+    z-index: -1;
+    display: none;
+
+    ${({ theme }) => theme.media.md} {
+      display: inline;
+      width: 15%;
+      height: 1rem;
+      top: 50%;
+    }
+  }
+`;
 const StyledOuterWrapper = styled.div`
   ${({ theme }) => theme.mixins.flex('flex', 'column', 'flex-start', 'center')};
   margin: 1rem auto;
@@ -28,8 +56,8 @@ const StyledOuterWrapper = styled.div`
     padding: 1rem;
     border-bottom: 1px solid ${({ theme }) => theme.colors.green};
     ${({ theme }) => theme.mixins.flex('flex', 'row', 'center', 'center')};
-    padding: 4rem;
-    margin: 4rem auto;
+    padding-bottom: 4rem;
+    margin-bottom: 4rem auto;
     width: 70%;
   }
 `;
@@ -111,6 +139,10 @@ const Numbers = () => {
   return (
     <>
       <StyledWrapper>
+        <StyledHeader>
+          Lubisz liczby? Gdyby liczby miały opisać moje życie zawodowe,
+          wyglądałoby to tak:
+        </StyledHeader>
         <StyledOuterWrapper>
           <StyledHeading ref={e => (first = e)}>20</StyledHeading>
           <StyledParagraph>
@@ -123,9 +155,10 @@ const Numbers = () => {
           <StyledTextWrapper>
             <StyledHeading ref={e => (second = e)}>12+</StyledHeading>
             <StyledParagraph>
-              lat spędzonych w szkołach. Skończyłam socjologię i psychologię,
-              szkoły coachingu: indywidualnego i grupowego, facylitacji oraz
-              szkołę trenerów&nbsp;NVC (Porozumienia bez Przemocy)
+              lat spędzonych w szkołach.
+              <br /> Skończyłam socjologię i psychologię, szkoły coachingu:
+              indywidualnego i grupowego, facylitacji oraz szkołę
+              trenerów&nbsp;NVC (Porozumienia bez Przemocy)
             </StyledParagraph>
           </StyledTextWrapper>
           <StyledTextWrapper>

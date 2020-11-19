@@ -4,11 +4,7 @@ import Powder from '../../images/powder.inline.svg';
 import Offer_1 from '../../images/offer_1.jpg';
 import Offer_2 from '../../images/offer_2.jpg';
 import Offer_3 from '../../images/offer_3.jpg';
-import {
-  animationLeft,
-  animationRight,
-  animationTimeline,
-} from '../../utils/Animations';
+import { animationScroll, animationTimeline } from '../../utils/Animations';
 
 const StyledSection = styled.section`
   overflow: hidden;
@@ -31,6 +27,9 @@ const StyledList = styled.ul`
   width: 100%;
   text-align: left;
   margin-bottom: 1rem;
+  text-indent: -10px;
+  padding-left: 0.8rem;
+
   ${({ theme }) => theme.media.md} {
     width: 50%;
   }
@@ -45,9 +44,12 @@ const StyledOfferParagraph = styled.p`
   &:last-of-type {
     margin-bottom: 3rem;
   }
+  &:first-of-type {
+    margin-top: 3rem;
+  }
 `;
 const StyledStrong = styled.strong`
-  font-weight: 600;
+  font-weight: 700;
 `;
 const StyledCard = styled.div`
   ${({ theme }) =>
@@ -81,6 +83,22 @@ const StyledHeading = styled.h2`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 1.2rem;
   color: ${({ theme }) => theme.colors.dark};
+  position: relative;
+  &::before {
+    content: '';
+    height: 0.8rem;
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background-color: ${({ theme }) => theme.colors.green};
+    z-index: -1;
+
+    ${({ theme }) => theme.media.lg} {
+      width: 15%;
+    }
+  }
+
   ${({ theme }) => theme.media.xl} {
     font-size: 2rem;
   } ;
@@ -124,8 +142,11 @@ const StyledHiddenBox = styled.div`
   transition: opacity 0.5s ease-out, max-height 0.5s ease-in;
   overflow: hidden;
   margin-bottom: 1rem;
+  ${({ theme }) =>
+    theme.mixins.flex('flex', 'column', 'flex-start', 'flex-start')}
   ${({ theme }) => theme.media.xl} {
     align-self: flex-start;
+    width: 90%;
   }
 `;
 const StyledButton = styled.button`
@@ -134,9 +155,11 @@ const StyledButton = styled.button`
   cursor: pointer;
   background-color: transparent;
   border: none;
-  color: ${({ theme }) => theme.colors.dark};
+  color: ${({ theme, color }) =>
+    color === 'red' ? theme.colors.red : theme.colors.dark};
+  padding: 0;
   outline: none;
-  padding: 0.5rem;
+  align-self: ${({ color }) => color === 'red' && 'flex-end'};
   ${({ theme }) => theme.media.xl} {
     font-size: 1.2rem;
   }
@@ -164,6 +187,10 @@ const Offer = () => {
   const handleButton = e => {
     setIsActive({ ...isActive, [e.target.name]: !isActive[e.target.name] });
   };
+  const goToHandler = e => {
+    animationScroll(e.target.name);
+  };
+
   useEffect(() => {
     animationTimeline(first, second, third);
   }, [!isActive]);
@@ -173,10 +200,16 @@ const Offer = () => {
       <StyledSection id={'co-robie'}>
         <StyledBackgroundHeading>co robię?</StyledBackgroundHeading>
         <StyledOfferParagraph ref={e => (start = e)}>
-          Pracuję głównie z kobietami w biznesie. Pomagam im odnaleźć i
-          zintegrować ich kobiecość, często zagubioną w drodze po sukces.
-          Spokojną, wewnętrzną moc. By budziły się każdego ranka w poczuciu
-          pełni, wewnętrznej równowagi, spokoju i radości.
+          Pracuję głównie z kobietami w biznesie.{' '}
+          <StyledStrong>
+            Pomagam im odnaleźć i zintegrować ich kobiecość,
+          </StyledStrong>{' '}
+          często zagubioną w drodze po sukces. Spokojną, wewnętrzną moc.
+          <StyledStrong>
+            {' '}
+            By budziły się każdego ranka w poczuciu pełni, wewnętrznej
+            równowagi, spokoju i radości.
+          </StyledStrong>
         </StyledOfferParagraph>
         <StyledOfferParagraph>
           Wiele lat pracowałam w męskich strukturach. Tłumiłam emocje i
@@ -203,18 +236,20 @@ const Offer = () => {
           komfortu, sięgają poza swoje granice.
         </StyledOfferParagraph>
         <StyledList>
-          <StyledStrong>Moja spècialitè to trzy grupy kobiet:</StyledStrong>
+          <StyledStrong>Moja spècialitè to praca z:</StyledStrong>
           <li>
             <StyledStrong>
-              - osiągające sukces, odczuwając jednocześnie zmęczenie i tęsknotę
-              za nieokreślonym
+              - kobietami które, osiągnęły sukces, lecz odczuwają jednocześnie
+              zmęczenie i tęsknotę za nieokreślonym
             </StyledStrong>
           </li>
           <li>
-            <StyledStrong>- po awansie </StyledStrong>
+            <StyledStrong>- kobietami po awansie</StyledStrong>
           </li>
           <li>
-            <StyledStrong>- pragnące budować uskrzydlone zespoły.</StyledStrong>
+            <StyledStrong>
+              - kobietami, które chcą budować uskrzydlone zespoły
+            </StyledStrong>
           </li>
         </StyledList>
         <StyledOfferParagraph>
@@ -234,29 +269,39 @@ const Offer = () => {
             <StyledParagraph>
               Jako kobiety nie mamy zdrowego wzorca kobiecego sukcesu, dlatego
               przyjmujemy najczęściej model męski: oparty na pełnym determinacji
-              działaniu, intelekcie, skuteczności, ambicji, rywalizacji. Oznacza
-              to najczęściej odrzucenie tego co kobiece: odczuwania, empatii,
-              cykliczności, zaufania do siebie oraz swojej intuicji.
+              działaniu, intelekcie, skuteczności, ambicji, rywalizacji.
+              <br /> Oznacza to najczęściej odrzucenie tego co kobiece:
+              odczuwania, empatii, cykliczności, zaufania do siebie oraz swojej
+              intuicji.
             </StyledParagraph>
             <StyledButton onClick={handleButton} name={'boxOne'}>
               {isActive.boxOne ? `❮` : 'czytaj dalej...'}
             </StyledButton>
             <StyledHiddenBox isActive={isActive.boxOne}>
               <StyledParagraph>
-                Osiągasz sukcesy, w poczuciu, że straciłaś swój głos? Część
-                siebie? Odczuwasz regularnie przeciążenie, zmęczenie, presję?
-                <br />
-                Budzisz się rankiem w poczuciu pustki, nieokreślonej tęsknoty,
-                bezsensu albo smutku?
+                Przeszłam długą drogę w poszukiwaniu równowagi pomiędzy
+                sukcesem, a poczuciem wewnętrznej pełni. Szukałam rozwiązań i
+                narzędzi w twardej wiedzy: w psychologii, socjologii, coachingu,
+                biznesie. Sięgałam także w nieoczywiste obszary: mindfulness,
+                yoga, ajurweda, movement medicine, filozofie rdzenne.{' '}
               </StyledParagraph>
               <StyledParagraph>
-                Chcesz osiągać świetne wyniki – w poczuciu wolności,
-                integralności i równowagi? W poczuciu, że lekko łączysz role?
-                Odczuwając sens, radość i satysfakcję?
+                Dziś pracuję łącząc całą tą wiedzę i doświadczenie. Umożliwiam w
+                ten sposób moim klientkom skrócenie ich drogi. Ja potrzebowałam
+                dwudziestu lat, żeby budzić się rano z poczuciem spokojnego
+                szczęścia.
+                <br /> Ty nie musisz szukać tak długo.
               </StyledParagraph>
               <StyledParagraph>
-                <StyledStrong>sprawdź moją ofertę</StyledStrong>
+                <StyledStrong>
+                  Chcesz osiągać świetne wyniki – w poczuciu wolności,
+                  integralności i równowagi? W poczuciu, że lekko łączysz role?
+                  Odczuwając sens, radość i satysfakcję?
+                </StyledStrong>
               </StyledParagraph>
+              <StyledButton color={'red'} onClick={goToHandler} name={'oferta'}>
+                sprawdź moją ofertę
+              </StyledButton>
             </StyledHiddenBox>
           </StyledParagraphContainer>
         </StyledCard>
@@ -294,14 +339,18 @@ const Offer = () => {
                 Bazując na wiedzy, dwudziestoletnim doświadczeniu pracy w
                 nowoczesnych strukturach HR i wypracowanych strategiach radzenia
                 sobie ze zmianą, pomogę Ci osiągnąć wewnętrzny spokój.
-                <br /> Tak, abyś na nowo poczuła w sobie moc, sprawczą siłę i
-                równowagę. Byś budziła się rano z lekkością, radością i
-                oczekiwaniem na nadchodzący dzień. Potrzebujesz miękkiego
-                lądowania?
+                <br />{' '}
+                <StyledStrong>
+                  Tak, abyś na nowo poczuła w sobie moc, sprawczą siłę i
+                  równowagę. Byś budziła się rano z lekkością, radością i
+                  oczekiwaniem na nadchodzący dzień.
+                </StyledStrong>{' '}
+                Potrzebujesz miękkiego lądowania?
               </StyledParagraph>
-              <StyledParagraph>
-                <StyledStrong>sprawdź moją ofertę</StyledStrong>
-              </StyledParagraph>
+
+              <StyledButton color={'red'} onClick={goToHandler} name={'oferta'}>
+                sprawdź moją ofertę
+              </StyledButton>
             </StyledHiddenBox>
           </StyledParagraphContainer>
         </StyledCard>
@@ -323,10 +372,9 @@ const Offer = () => {
             </StyledButton>
             <StyledHiddenBox isActive={isActive.boxThree}>
               <StyledParagraph>
-                Różnorodność stanowi w nim fundament, na którym buduje się
-                unikalne rozwiązania. To zespół, w którym śmiech i zaufanie
-                współbrzmią z wysokimi wynikami. A ludzie budzą się rano w
-                oczekiwaniu na nadchodzący dzień.{' '}
+                To zespół, w którym śmiech i zaufanie współbrzmią z wysokimi
+                wynikami. A ludzie budzą się rano w oczekiwaniu na nadchodzący
+                dzień.{' '}
               </StyledParagraph>
               <StyledParagraph>
                 {' '}
@@ -345,13 +393,12 @@ const Offer = () => {
                 czego zaczynamy?”
               </StyledParagraph>
               <StyledParagraph>
-                {' '}
-                A Ty? Chcesz mieć taki zespół?{' '}
-                <StyledStrong>Od czego zaczynamy?</StyledStrong>
+                <StyledStrong>A Ty? Chcesz mieć taki zespół?</StyledStrong>
               </StyledParagraph>
-              <StyledParagraph>
-                <StyledStrong>sprawdź moją ofertę</StyledStrong>
-              </StyledParagraph>
+
+              <StyledButton color={'red'} onClick={goToHandler} name={'oferta'}>
+                Od czego zaczynamy?
+              </StyledButton>
             </StyledHiddenBox>
           </StyledParagraphContainer>
         </StyledCard>

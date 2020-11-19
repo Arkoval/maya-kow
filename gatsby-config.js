@@ -59,7 +59,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`mulish\:200,300,400,500`, `rozha one`],
+        fonts: [`mulish\:200,300,400,500,600,700,800`, `rozha one`],
       },
       display: 'swap',
     },

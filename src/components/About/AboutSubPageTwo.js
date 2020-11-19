@@ -30,7 +30,7 @@ const StyledWrapper = styled.div`
   }
 `;
 const StyledTextWrapper = styled.div`
-  text-align: justify;
+  text-align: left;
 
   ${({ theme }) => theme.media.sm} {
     width: 70%;
@@ -61,10 +61,10 @@ const StyledHeading = styled.h1`
       display: inline;
       width: 85%;
       height: 1rem;
-      top: 30%;
+      top: 50%;
     }
   }
-  ${({ theme }) => theme.media.sm} {
+  ${({ theme }) => theme.media.lg} {
     font-size: 2rem;
   }
 `;
@@ -108,9 +108,12 @@ const AboutSubPageTwo = () => {
             </StyledParagraph>{' '}
             <StyledParagraph>
               Jestem nauczycielką jogi kundalini, wegetarianką i ekologiczną
-              terrorystką (jak mówi mój mąż). Kocham czerwone włoskie wino,
-              maliny, słońce, morze i listopad. Gdy wchodzę do księgarni –
-              przejawiam wszelkie znamiona uzależnienia.
+              terrorystką (jak mówi mój mąż).
+            </StyledParagraph>{' '}
+            <StyledParagraph>
+              Kocham czerwone włoskie wino, maliny, słońce, morze i listopad.
+              Gdy wchodzę do księgarni: przejawiam wszelkie znamiona
+              uzależnienia.
             </StyledParagraph>
             <StyledLink to="/#o-mnie">wróć...</StyledLink>
           </StyledTextWrapper>

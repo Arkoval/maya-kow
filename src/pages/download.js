@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CoffeeTemplate from '../layout/CoffeeTemplate';
 import styled from 'styled-components';
 import { theme } from '../theme/theme';
+import Mailerlite from '../utils/Mailerlite';
 
-const StyledWrapper = styled.div`
+const StyledSection = styled.section`
   width: 90%;
   margin: 1rem auto;
   ${({ theme }) =>
@@ -20,13 +21,13 @@ const StyledImg = styled.img`
     width: 35%;
   }
 `;
-const StyledDiv = styled.div`
+const StyledWrapper = styled.div`
   width: 100%;
   height: 100%;
   ${({ theme }) =>
     theme.mixins.flex('flex', 'column', 'center', 'space-between')}
   ${({ theme }) => theme.media.md} {
-    width: 45%;
+    width: 55%;
   }
 `;
 const StyledSpan = styled.span`
@@ -38,9 +39,10 @@ const StyledSpan = styled.span`
 `;
 const StyledParagraph = styled.p`
   margin: 0.5rem 0;
-  line-height: 1.5;
+
+  text-align: left;
 `;
-const StyledLink = styled.button`
+const StyledLink = styled.a`
   padding: 0.5rem 0.8rem;
   color: ${({ theme }) => theme.colors.light};
   background-color: ${({ theme }) => theme.colors.blue};
@@ -58,23 +60,24 @@ const StyledLink = styled.button`
 `;
 
 const Download = () => {
+  const handleOnClick = () => {
+    Mailerlite('show');
+  };
+
   return (
     <CoffeeTemplate color={theme.colors.blue}>
-      <StyledWrapper>
+      <StyledSection>
         <StyledImg
-          src={require('../images/ebook.jpeg')}
+          src={require('../images/ebook.jpg')}
           alt={'okładka ebooka'}
         />
-        <StyledDiv>
-          <StyledParagraph>
-            Stawiasz sobie poprzeczkę na wysokości praktycznie niemożliwej
-            do&nbsp;osiągnięcia?
-          </StyledParagraph>
+        <StyledWrapper>
           <StyledParagraph>
             {' '}
-            Najpierw zawsze doszukujesz się najmniejszych niedociągnięć w tym
-            co&nbsp;zrobiłaś? I poprawiasz, poprawiasz, poprawiasz? Czasem w
-            nieskończoność?
+            Stawiasz sobie poprzeczkę na wysokości praktycznie niemożliwej do
+            osiągnięcia? Najpierw zawsze doszukujesz się najmniejszych
+            niedociągnięć w tym co&nbsp;zrobiłaś? I poprawiasz, poprawiasz,
+            poprawiasz? Czasem w nieskończoność?
           </StyledParagraph>
           <StyledParagraph>
             Regularnie masz poczucie, że nie wiesz, nie umiesz wystarczająco
@@ -88,8 +91,8 @@ const Download = () => {
           </StyledParagraph>
           <StyledSpan>
             Ten e-book to odpowiedzi na pytania jak możesz transformować nawyk
-            porównywania się i zadbać o siebie wtedy, gdy jest Ci bardzo trudno.
-            47&nbsp;stron żywej wiedzy i praktyk.
+            porównywania się i zadbać o&nbsp;siebie wtedy, gdy jest Ci bardzo
+            trudno. 47&nbsp;stron żywej wiedzy i praktyk.
           </StyledSpan>{' '}
           <StyledParagraph>
             Warunkiem jego otrzymania jest zapis na newsletter, który nazywam
@@ -97,9 +100,9 @@ const Download = () => {
             zatrzymaniu, zanurzając się w przyjemności i inspiracji. A dla mnie
             to możliwe tylko z kawą :)
           </StyledParagraph>
-          <StyledLink>Przygarniam ebook</StyledLink>
-        </StyledDiv>
-      </StyledWrapper>
+          <StyledLink onClick={handleOnClick}>Przygarniam ebook</StyledLink>
+        </StyledWrapper>
+      </StyledSection>
     </CoffeeTemplate>
   );
 };

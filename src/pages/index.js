@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AboutMain from '../components/About/About';
 import Numbers from '../components/Numbers/Numbers';
 import Hero from '../components/Hero/Hero';
@@ -10,20 +10,26 @@ import ForCoffee from '../components/ForCoffee/ForCoffee';
 import Contact from '../components/Contact/Contact';
 import Opinions from '../components/opinions/Opinions';
 import { Helmet } from 'react-helmet';
+import Mailerlite from '../utils/Mailerlite';
 
-const IndexPage = () => (
-  <MainTemplate>
-    <SEO title="Home" />
-    <Helmet></Helmet>
-    <Hero />
-    <AboutMain />
-    <Numbers />
-    <Offer />
-    <Cooperation />
-    <Opinions />
-    <ForCoffee />
-    <Contact />
-  </MainTemplate>
-);
+const IndexPage = () => {
+  useEffect(() => {
+    Mailerlite();
+  });
+
+  return (
+    <MainTemplate>
+      <SEO title="Home" />
+      <Hero />
+      <AboutMain />
+      <Numbers />
+      <Offer />
+      <Cooperation />
+      <Opinions />
+      <ForCoffee />
+      <Contact />
+    </MainTemplate>
+  );
+};
 
 export default IndexPage;
