@@ -25,9 +25,17 @@ const StyledNavList = styled.ul`
   display: none;
   ${({ theme }) => theme.media.md} {
     border-top: 1px solid ${({ theme }) => theme.colors.light};
-    ${({ theme }) => theme.mixins.flex('flex', 'row', 'center', 'flex-start')};
+    ${({ theme }) =>
+      theme.mixins.flex('flex', 'row', 'flex-start', 'flex-start')};
     list-style: none;
     padding: 1.5rem;
+
+    li:last-child {
+      order: 1;
+    }
+    li:nth-child(6) {
+      order: 3;
+    }
   }
 `;
 const StyledNavItem = styled.li`
@@ -35,6 +43,9 @@ const StyledNavItem = styled.li`
   text-align: left;
   ${({ theme }) => theme.media.lg} {
     margin-right: 3rem;
+    a {
+      line-height: 1.1;
+    }
   }
 `;
 
@@ -46,7 +57,7 @@ const StyledLink = styled.button`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.light};
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 400;
   transition: 0.2s;
   ${({ theme }) => theme.media.lg} {
     font-size: 1.5rem;
@@ -66,7 +77,7 @@ const StyledLogo = styled(Logo)`
 
 const Navbar = () => {
   const goToHandler = e => {
-    animationScroll(e.target.name);
+    e.target.name && animationScroll(e.target.name);
   };
 
   const navLinks = routes.map(route => {
@@ -81,7 +92,18 @@ const Navbar = () => {
     <>
       <StyledNav>
         <StyledLogo />
-        <StyledNavList onClick={goToHandler}>{navLinks}</StyledNavList>
+        <StyledNavList onClick={goToHandler}>
+          {navLinks}
+          <StyledNavItem>
+            <StyledLink
+              as={Link}
+              to="https://www.sklep.magdalena-kowalska.pl"
+              target="_blank"
+            >
+              sklep
+            </StyledLink>
+          </StyledNavItem>
+        </StyledNavList>
       </StyledNav>
     </>
   );

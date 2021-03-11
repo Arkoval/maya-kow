@@ -54,6 +54,11 @@ const StyledHeading = styled.h1`
 
 const StyledParagraph = styled.p`
   margin: 1rem 0;
+
+  &:last-of-type {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
 `;
 const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.colors.dark};
@@ -73,7 +78,7 @@ const Contact = () => {
               własnych zasadach.
             </StyledParagraph>
             <StyledParagraph>
-              Zaproznaj się z{' '}
+              Zapoznaj się z{' '}
               <StyledLink to="/polityka-prywatnosci">
                 polityką-prywatności
               </StyledLink>{' '}

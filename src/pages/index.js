@@ -9,8 +9,8 @@ import Cooperation from '../components/Cooperation/Cooperation';
 import ForCoffee from '../components/ForCoffee/ForCoffee';
 import Contact from '../components/Contact/Contact';
 import Opinions from '../components/opinions/Opinions';
+import { Mailerlite } from '../utils/Mailerlite';
 import { Helmet } from 'react-helmet';
-import Mailerlite from '../utils/Mailerlite';
 
 const IndexPage = () => {
   useEffect(() => {

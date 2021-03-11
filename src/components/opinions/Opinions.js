@@ -28,6 +28,7 @@ const StyledWrapper = styled.div`
 const StyledCard = styled.div`
   margin: 4rem 0.5rem;
   width: 90%;
+
   ${({ theme }) => theme.media.md} {
     height: 100%;
     width: 70%;

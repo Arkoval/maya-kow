@@ -18,18 +18,18 @@ export const animationLeft = (left, start) => {
   });
 };
 
-export const animationTimeline = (first, second, third) => {
+export const animationTimeline = (start, first, second, third) => {
   let tl = gsap.timeline({
     scrollTrigger: {
-      trigger: first,
-      start: 'start start',
+      trigger: start,
+      start: 'center center',
       end: '+=500',
     },
   });
 
   tl.from(first, { x: -100, autoAlpha: 0, duration: 1 });
-  tl.from(second, { x: -100, autoAlpha: 0, duration: 1 });
-  tl.from(third, { x: -100, autoAlpha: 0, duration: 1 });
+  tl.from(second, { x: -100, autoAlpha: 0, duration: 1, delay: 1 });
+  tl.from(third, { x: -100, autoAlpha: 0, duration: 1, delay: 1 });
 };
 
 export const animationRight = (right, start) => {
@@ -50,7 +50,7 @@ export const animationBot = container => {
     autoAlpha: 0,
     scrollTrigger: {
       trigger: container,
-      start: 'top top',
+      start: 'center center',
       end: '+=100%',
     },
   });

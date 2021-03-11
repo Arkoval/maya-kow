@@ -140,7 +140,7 @@ const StyledPowderSvg = styled(Powder)`
     display: block;
   }
 `;
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
   position: absolute;
   bottom: 5%;
   right: 5%;
@@ -149,7 +149,9 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.red};
 `;
-const StyledWebLink = styled.a``;
+const StyledWebLink = styled.a`
+  color: ${({ theme }) => theme.colors.blue};
+`;
 const Cooperation = () => {
   const [isOpen, setIsOpen] = useState({
     individual: false,
@@ -203,7 +205,7 @@ const Cooperation = () => {
               </StyledParagraph>
               <StyledParagraph>
                 {' '}
-                Cena sesji indywidualnej wynosi 500 PLN brutto.{' '}
+                Cena sesji indywidualnej wynosi 500 PLN netto.{' '}
               </StyledParagraph>
               <StyledParagraph>
                 {' '}
@@ -240,7 +242,7 @@ const Cooperation = () => {
               </StyledParagraph>
               <StyledParagraph>
                 {' '}
-                Ja odpowiadam za treść, proces i materiały stworzone tak, by
+                Odpowiadam za treść, proces i materiały stworzone tak, by
                 maksymalnie pomóc Ci w Twojej wewnętrznej zmianie. Jestem obecna
                 i aktywna w całym programie.
               </StyledParagraph>
@@ -248,21 +250,22 @@ const Cooperation = () => {
                 Kupując udział w programie otrzymujesz:
               </StyledParagraph>
               <StyledList>
-                <li>- filmy, </li>
-                <li>- transkrypcje filmów opracowane w formie podręcznika,</li>
+                <li>- nagrania wideo</li>
                 <li>
                   - manual z zadaniami, tak dobranymi, by zmaksymalizować
                   efektywność programu
                 </li>
                 <li>- udział w zamkniętej grupie na FB</li>
-                <li>
-                  - otwierający/zamykający warsztat online (z wykorzystaniem
-                  platformy zoom)
-                </li>
+                <li>- otwierający/zamykający warsztat online</li>
                 <li>- zaprojektowaną pracę z drugą kobietą</li>
-                <li>- sesje pytań i odpowiedzi online (Q&A) (zoom)</li>
+                <li>- sesje pytań i odpowiedzi online (Q&A)</li>
               </StyledList>
-              <StyledLink to={'/oferta-online'}>sprawdź ofertę</StyledLink>
+              <StyledLink
+                to={'https://sklep.magdalena-kowalska.pl/'}
+                target="_blank"
+              >
+                sprawdź wydarzenia
+              </StyledLink>
             </StyledHiddenBox>
           </StyledCard>
           <StyledCard>
@@ -291,13 +294,13 @@ const Cooperation = () => {
               <StyledParagraph>
                 {' '}
                 Odpowiadam za treść merytoryczną, materiały, facylitację
-                procesu.
+                procesu.{' '}
                 <StyledWebLink
                   href={
                     'http://www.magdalena-kowalska.pl/blog/dlaczego-uwielbiam-facylitacje'
                   }
                 >
-                  [więcej o facylitacji]
+                  (więcej o facylitacji)
                 </StyledWebLink>{' '}
                 Jestem z Tobą i grupą przez cały czas wyjazdu.
               </StyledParagraph>
@@ -310,13 +313,15 @@ const Cooperation = () => {
                   - udział w zamkniętej grupie na FB z moim aktywną obecnością
                   oraz wsparciem
                 </li>
-                <li>
-                  - otwierający/zamykający warsztat online (z wykorzystaniem
-                  platformy zoom)
-                </li>
+                <li>- otwierający/zamykający warsztat online</li>
                 <li>- pracę warsztatową</li>
               </StyledList>
-              <StyledLink to={'/oferta-wyjazdowa'}>sprawdź ofertę</StyledLink>
+              <StyledLink
+                to={'https://sklep.magdalena-kowalska.pl/'}
+                target="_blank"
+              >
+                sprawdź wydarzenia
+              </StyledLink>
             </StyledHiddenBox>
           </StyledCard>
           <StyledCard>
@@ -344,14 +349,21 @@ const Cooperation = () => {
               </StyledParagraph>
               <StyledParagraph> Kupując kurs, otrzymujesz:</StyledParagraph>
               <StyledList>
-                <li>- filmy</li>
-                <li>- transkrypcje filmów opracowane w formie podręcznika</li>
+                <li>- nagrania wideo</li>
                 <li>
                   - manual z zadaniami, tak dobranymi, by zmaksymalizować
                   efektywność programu
                 </li>
+                <li>
+                  - udział w zamkniętej grupie na FB dedykowanej moim klientkom
+                </li>
               </StyledList>
-              <StyledLink to={'/oferta-online'}>sprawdź ofertę</StyledLink>
+              <StyledLink
+                to={'https://sklep.magdalena-kowalska.pl/'}
+                target="_blank"
+              >
+                sprawdź wydarzenia
+              </StyledLink>
             </StyledHiddenBox>
           </StyledCard>
         </StyledWrapper>

@@ -2,12 +2,12 @@ import { Link } from 'gatsby';
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Name from '../../images/name.inline.svg';
-import { animationLeft } from '../../utils/Animations';
-import TextFormatter from '../../utils/TextFormatter';
+import Powder from '../../images/powder.inline.svg';
 
 const StyledSection = styled.section`
   ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')}
   margin-top: 2rem;
+  position: relative;
 `;
 const StyledWrapper = styled.div`
   ${({ theme }) => theme.mixins.flex('flex', 'row', 'center', 'space-evenly')};
@@ -20,15 +20,7 @@ const StyledWrapper = styled.div`
     width: 75%;
   }
 `;
-// const StyledImage = styled.img`
-//   width: 45%;
-//   margin-bottom: 0.8rem;
-//   height: 100%;
-//   object-fit: cover;
-//   ${({ theme }) => theme.media.sm} {
-//     width: 22%;
-//   }
-// `;
+
 const StyledImage = styled.img`
   height: 100%;
   width: 100%;
@@ -39,7 +31,18 @@ const StyledImage = styled.img`
     transform: scale(1.05);
   }
 `;
+const StyledPowderSvg = styled(Powder)`
+  display: none;
+  position: absolute;
+  left: -40%;
+  bottom: -10%;
+  width: 60%;
+  z-index: -2;
 
+  ${({ theme }) => theme.media.sm} {
+    display: block;
+  }
+`;
 const StyledImageWrapper = styled.div`
   width: 22%;
   height: 100%;
@@ -53,7 +56,7 @@ const StyledTextWrapper = styled.div`
   ${({ theme }) =>
     theme.mixins.flex('flex', 'column', 'flex-start', 'space-evenly')}
   ${({ theme }) => theme.media.sm} {
-    width: 45%;
+    width: 55%;
   }
 `;
 const StyledHeading = styled.h1`
@@ -85,6 +88,29 @@ const StyledSubHeading = styled.h2`
 `;
 const StyledParagraph = styled.p`
   margin: 0.5rem 0;
+
+  i {
+    font-style: italic;
+  }
+  &:first-of-type {
+    position: relative;
+
+    &::after {
+      content: '';
+      top: 20%;
+      left: 2%;
+      width: 98%;
+      height: 80%;
+      position: absolute;
+      background-color: ${({ theme }) => theme.colors.green};
+      opacity: 0.5;
+      z-index: -1;
+
+      ${({ theme }) => theme.media.md} {
+        height: 100%;
+      }
+    }
+  }
 `;
 const StyledStrong = styled.strong`
   font-weight: 700;
@@ -144,13 +170,23 @@ const AboutMain = () => {
             />
           </StyledImageWrapper>
         </StyledWrapper>
+        <StyledPowderSvg />
         <StyledTextWrapper>
           <StyledHeading>
             Mam na imię <StyledNameSvg />
           </StyledHeading>
           <StyledParagraph>
-            W jednej z ważniejszych dla mnie książek Sztuka możliwości, autorzy
-            – Rosamunde i Ben Zander, opisują taką historię:
+            <StyledStrong>
+              Pomagam kobietom, które pracują w korporacyjnym świecie tworzyć
+              własne definicje kobiecości, sukcesu i przywództwa.{' '}
+            </StyledStrong>
+            <br />
+            By budziły się każdego ranka w poczuciu pełni, wewnętrznej
+            równowagi, sensu i radości. By żyły na własnych zasadach
+          </StyledParagraph>
+          <StyledParagraph>
+            Opowiem Ci krótką historię z książki <i>Sztuka możliwości</i>,
+            Rosamunde i Bena Zander.
           </StyledParagraph>
           <StyledParagraph>
             {' '}

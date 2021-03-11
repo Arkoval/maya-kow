@@ -1,13 +1,13 @@
 module.exports = {
-  pathPrefix: '/maya-kow',
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Magdalena Kowalska Mentoring`,
+    description: `kobiece przywództwo na własnych warunkach`,
+    author: `Magdalena Kowalska`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -48,8 +48,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Magdalena-Kowalska`,
+        short_name: `magda`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -57,9 +57,23 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ['G-YQPDLBVP1N'],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: false,
+          respectDNT: true,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`mulish\:200,300,400,500,600,700,800`, `rozha one`],
+        fonts: [`mulish\:200,300, 300i,400, 400i,500,600,700,800`, `rozha one`],
       },
       display: 'swap',
     },

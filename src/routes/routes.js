@@ -20,9 +20,9 @@ export const routes = [
     path: '#opinie',
   },
   {
-    name: 'do kawy',
-    subName: 'do-kawy',
-    path: '#do-kawy',
+    name: 'inspiracje',
+    subName: 'inspiracje',
+    path: '#inspiracje',
   },
   {
     name: 'kontakt',

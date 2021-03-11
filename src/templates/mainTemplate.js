@@ -43,7 +43,37 @@ const StyledHeading = styled.h1`
     font-size: 3rem;
   }
 `;
+const StyledList = styled.ul`
+  text-align: left;
+  width: 90%;
+  margin: 0 auto;
+  line-height: 1.2rem;
+  list-style-type: disc;
+  list-style-position: inside;
+  text-indent: -1.4rem;
+  padding-left: 1.5rem;
 
+  ${({ theme }) => theme.media.sm} {
+    line-height: 1.5rem;
+    width: 80%;
+  }
+  ${({ theme }) => theme.media.lg} {
+    width: 60%;
+  }
+`;
+const StyledSubHeading = styled.h3`
+  font-weight: 600;
+  width: 90%;
+  margin: 1rem auto;
+  text-align: left;
+  ${({ theme }) => theme.media.sm} {
+    line-height: 1.5rem;
+    width: 80%;
+  }
+  ${({ theme }) => theme.media.lg} {
+    width: 60%;
+  }
+`;
 const StyledDate = styled.p`
   font-size: 0.8rem;
   color: ${({ theme }) => theme.colors.blue};
@@ -58,9 +88,7 @@ const StyledDate = styled.p`
     width: 60%;
   }
 `;
-const StyledTitle = styled.strong`
-  display: block;
-  margin: 1rem 0;
+const StyledStrong = styled.strong`
   font-weight: 600;
 `;
 const StyledParagraph = styled.p`
@@ -116,17 +144,21 @@ const LeftTemplate = ({ data }) => {
         <HTMLRenderer
           html={post.data.text.html}
           components={{
-            strong: props => <StyledTitle {...props} />,
+            strong: props => <StyledStrong {...props} />,
             p: props => <StyledParagraph {...props} />,
             a: props => <StyledLink {...props} />,
+            ul: props => <StyledList {...props} />,
+            h3: props => <StyledSubHeading {...props} />,
           }}
         />
         <HTMLRenderer
           html={post.data.text_2.html}
           components={{
-            strong: props => <StyledTitle {...props} />,
+            strong: props => <StyledStrong {...props} />,
             p: props => <StyledParagraph {...props} />,
             a: props => <StyledLink {...props} />,
+            ul: props => <StyledList {...props} />,
+            h3: props => <StyledSubHeading {...props} />,
           }}
         />
         <StyledDate>{post.data.date}</StyledDate>

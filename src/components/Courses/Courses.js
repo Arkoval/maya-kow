@@ -3,18 +3,16 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import HTMLRenderer from 'react-html-renderer';
 import { animationCarousel } from '../../utils/Animations';
+import Powder from '../../images/powder.inline.svg';
 
 const StyledSection = styled.section`
   width: 100%;
   margin: 0 auto;
   ${({ theme }) => theme.mixins.flex('flex', 'column', 'center', 'center')}
   position: relative;
+  overflow: hidden;
   ${({ theme }) => theme.media.md} {
     min-height: 80vh;
-    width: 90%;
-  }
-  ${({ theme }) => theme.media.xl} {
-    width: 80%;
   }
 `;
 const StyledWrapper = styled.div`
@@ -22,6 +20,9 @@ const StyledWrapper = styled.div`
     theme.mixins.flex('flex', 'column', 'center', 'space-between')}
   ${({ theme }) => theme.media.sm} {
     flex-direction: row;
+  }
+  ${({ theme }) => theme.media.xl} {
+    width: 90%;
   }
 `;
 const StyledHeading = styled.h1`
@@ -60,7 +61,7 @@ const StyledCard = styled.div`
         )};
     }
     ${({ theme }) => theme.media.xl} {
-      max-width: 60vw;
+      max-width: 90vw;
     }
   }
 `;
@@ -76,6 +77,7 @@ const StyledInnerWrapper = styled.div`
   ${({ theme }) => theme.media.sm} {
     height: 45vh;
     overflow-y: auto;
+    padding-right: 0.5rem;
 
     &::-webkit-scrollbar {
       width: 0.5rem;
@@ -143,6 +145,18 @@ const StyledButton = styled.button`
     display: block;
   }
 `;
+const StyledPowderSvg = styled(Powder)`
+  display: none;
+  position: absolute;
+  right: -10%;
+  bottom: -10%;
+  width: 60%;
+  z-index: -2;
+
+  ${({ theme }) => theme.media.sm} {
+    display: block;
+  }
+`;
 
 const OfferOnline = ({ courses }) => {
   let element = useRef(null);
@@ -196,7 +210,9 @@ const OfferOnline = ({ courses }) => {
               }}
             />
           </StyledInnerWrapper>
-          <StyledLink to={course.data.link.url}>zobacz szczegóły!</StyledLink>
+          <StyledLink to={course.data.link.url} target="_blank">
+            zobacz szczegóły!
+          </StyledLink>
         </StyledCardWrapper>
         <StyledImage src={course.data.image.url} alt={course.data.image.alt} />
       </StyledCard>
@@ -205,6 +221,7 @@ const OfferOnline = ({ courses }) => {
 
   return (
     <StyledSection>
+      <StyledPowderSvg />
       <StyledWrapper>
         <StyledButton onClick={handlePrev}>&#60;</StyledButton>
         {isMobile ? course : course[index]}

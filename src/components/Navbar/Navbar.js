@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { routes } from '../../routes/routes';
 import { animationScroll } from '../../utils/Animations';
+import { Link } from 'gatsby';
 
 const StyledNav = styled.div`
   height: 100vh;
@@ -21,6 +22,14 @@ const StyledNavList = styled.ul`
   list-style: none;
   width: 80%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  li:last-child {
+    order: 1;
+  }
+  li:nth-child(6) {
+    order: 2;
+  }
 `;
 const StyledNavItem = styled.li`
   margin-bottom: 1rem;
@@ -36,6 +45,7 @@ const StyledLink = styled.button`
   border: none;
   color: ${({ theme }) => theme.colors.dark};
   font-family: ${({ theme }) => theme.fonts.paragraf};
+  padding: 0;
   font-size: 2rem;
   ${({ theme }) => theme.media.sm} {
     font-size: 2.5rem;
@@ -146,7 +156,6 @@ const StyledNavButtonInner = styled.span`
       `}
   }
 `;
-
 const Navbar = () => {
   let [isActive, setIsActive] = useState(false);
   let [visible, setVisible] = useState(false);
@@ -155,7 +164,7 @@ const Navbar = () => {
 
   const goToHandler = e => {
     handleActive();
-    animationScroll(e.target.name);
+    e.target.name && animationScroll(e.target.name);
   };
 
   function updateScroll() {
@@ -189,7 +198,18 @@ const Navbar = () => {
         </StyledNavButtonWrapper>
       </StyledNavButton>
       <StyledNav isActive={isActive}>
-        <StyledNavList onClick={goToHandler}>{navLinks}</StyledNavList>
+        <StyledNavList onClick={goToHandler}>
+          {navLinks}
+          <StyledNavItem>
+            <StyledLink
+              as={Link}
+              to="https://www.sklep.magdalena-kowalska.pl"
+              target="_blank"
+            >
+              sklep
+            </StyledLink>
+          </StyledNavItem>
+        </StyledNavList>
       </StyledNav>
     </div>
   );

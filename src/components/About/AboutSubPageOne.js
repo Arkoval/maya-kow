@@ -93,8 +93,7 @@ const AboutSubPageOne = () => {
               {' '}
               Tak więc uwielbiam rozciągać kobiety. O milimetr. O centymetr. A
               potem znowu. Uwielbiam patrzeć, jak rosną i rozwijają skrzydła.
-              Jak sięgają po to, czego pragną – odważnie i ze spokojną
-              pewnością.
+              Jak sięgają po to, czego pragną: odważnie i ze spokojną pewnością.
             </StyledParagraph>
           </StyledTextWrapper>
           <StyledTextWrapper>
@@ -108,12 +107,11 @@ const AboutSubPageOne = () => {
             <StyledParagraph>
               {' '}
               Najbardziej naturalnie przychodzi mi podważanie tego, co oczywiste
-              i nawykowe. A w następnym kroku jego transformacja.
+              i nawykowe. <br /> A w następnym kroku jego transformacja.
               <br />
               Oglądałaś Spidermana? On miał pajęczy zmysł odczytujący
               niebezpieczeństwo, ja mam pajęczy zmysł reagujący na „prawdy
-              oczywiste”. Zwłaszcza te, które paraliżują i tłumią potencjał
-              ludzi.
+              oczywiste”. Zwłaszcza te, które paraliżują i tłumią potencjał.
             </StyledParagraph>
           </StyledTextWrapper>
         </StyledWrapper>

@@ -62,7 +62,7 @@ const CoffeeNavbar = ({ color, offer }) => {
     if (color === theme.colors.green) {
       return (
         <StyledLink color={color} to={'/download'}>
-          do pobrania
+          prezenty
         </StyledLink>
       );
     } else if (color === theme.colors.blue) {

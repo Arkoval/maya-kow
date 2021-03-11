@@ -75,7 +75,7 @@ const StyledSpan = styled.span`
 const ForCoffee = () => {
   return (
     <>
-      <StyledSection id={'do-kawy'}>
+      <StyledSection id={'inspiracje'}>
         <StyledImage src={CoffeeImage} alt={'zdjęcie z kawą'} />
         <StyledWrapper>
           <StyledParagraph>
@@ -95,7 +95,7 @@ const ForCoffee = () => {
           </StyledParagraph>
           <StyledLinksWrapper>
             <StyledLink to="/blog">blog</StyledLink>
-            <StyledLink to="/download">prezent</StyledLink>
+            <StyledLink to="/download">prezenty</StyledLink>
           </StyledLinksWrapper>
         </StyledWrapper>
       </StyledSection>

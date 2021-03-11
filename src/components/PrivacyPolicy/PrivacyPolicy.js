@@ -1,25 +1,44 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import PrivacyImg from '../../images/privacy_policy.jpg';
 
 const StyledSection = styled.section`
   width: 100%;
   text-align: center;
 `;
+const StyledBackgroundImage = styled.div`
+  width: 100%;
+  height: 40vh;
+  background: url(${PrivacyImg}) no-repeat center;
+  background-size: contain;
+  margin-bottom: 1rem;
+  ${({ theme }) => theme.media.md} {
+    background-size: cover;
+  }
+`;
 const StyledWrapper = styled.div`
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
-  text-align: justify;
+  text-align: left;
+  ${({ theme }) => theme.media.md} {
+    width: 50%;
+    text-align: justify;
+  }
 `;
 const StyledHeader = styled.h1`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 3rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  /* width: 100%; */
+  font-size: 1.5rem;
+  margin: 1rem;
   display: inline-block;
   color: ${({ theme }) => theme.colors.dark};
   position: relative;
+
+  ${({ theme }) => theme.media.md} {
+    font-size: 3rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
 
   &::before,
   &::after {
@@ -50,9 +69,14 @@ const StyledHeader = styled.h1`
   }
 `;
 const StyledHeading = styled.h2`
-  margin: 1rem;
-  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
   font-weight: 600;
+
+  ${({ theme }) => theme.media.md} {
+    font-size: 1.2rem;
+    margin: 1rem;
+  }
 `;
 const StyledParagraph = styled.p`
   margin-bottom: 2rem;
@@ -74,6 +98,7 @@ const StyledLink = styled(Link)`
 const PrivacyPolicy = () => {
   return (
     <StyledSection>
+      <StyledBackgroundImage />
       <StyledHeader>polityka prywatności magdalena kowalska</StyledHeader>
       <StyledWrapper>
         <StyledParagraph>
